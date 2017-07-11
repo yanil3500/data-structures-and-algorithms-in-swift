@@ -71,4 +71,17 @@ extension Stack {
         }
     }
     
+    func peek() throws -> Element? {
+        /*
+         This method returns the last element pushed onto the stack without removing it.
+         Complexity: O(1) Constant Time
+         */
+        if self.isEmpty {
+            throw StackError.EmptyStack("Cannot peek into an empty stack.")
+        } else {
+            guard let val : Element = self.top?.data else { return nil }
+            return val
+        }
+    }
+    
 }
