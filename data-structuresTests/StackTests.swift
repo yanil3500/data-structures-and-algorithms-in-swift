@@ -110,6 +110,56 @@ class StackTests: XCTestCase {
         XCTAssertThrowsError(try emptyTestDoubleStack.peek())
     }
     
+    func testStringStackEmptyStackPopThrowsError(){
+        //This function asserts that this method will throw an error if attempting to pop from an empty stack.
+        XCTAssertThrowsError(try emptyTestStringStack.pop())
+    }
+    
+    func testIntStackPeekEmptyStackPopThrowsError(){
+        //This function asserts that this method will throw an error if attempting to pop from an empty stack.
+        XCTAssertThrowsError(try emptyTestIntStack.pop())
+    }
+    
+    func testDoubleStackPeekEmptyStackPopThrowsError(){
+        //This function asserts that this method will throw an error if attempting to pop from an empty stack.
+        XCTAssertThrowsError(try emptyTestDoubleStack.pop())
+    }
+    
+    func testStringStackPeek(){
+        //This function assert that this method returns the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        var lastItem : String = ""
+        for _ in 1...random {
+            lastItem = faker.address.city()
+            testStringStack.push(data: lastItem)
+        }
+        
+        XCTAssert(try testStringStack.peek() == lastItem)
+        
+    }
+    
+    func testIntStackPeek(){
+        //This function assert that this method returns the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 1, max: 301)
+        var lastItem : Int = 0
+        for _ in 1...random{
+            lastItem = faker.number.randomInt()
+            testIntStack.push(data: lastItem)
+        }
+        XCTAssert(try testIntStack.peek() == lastItem)
+    }
+    
+    func testDoubleStackPeek(){
+        //This function assert that this method returns the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 1, max: 306)
+        var lastItem : Double = 0
+        for _ in 1...random{
+            lastItem = faker.number.randomDouble()
+            testDoubleStack.push(data: lastItem)
+        }
+        XCTAssert(try testDoubleStack.peek() == lastItem)
+    }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
