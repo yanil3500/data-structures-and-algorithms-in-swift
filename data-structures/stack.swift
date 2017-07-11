@@ -84,4 +84,11 @@ extension Stack {
         }
     }
     
+    func size() -> Int {
+        /*
+         This method returns the number of elements in the stack.
+         Complexity: O(1) Constant Time
+         */
+        return self.length
+    }
 }

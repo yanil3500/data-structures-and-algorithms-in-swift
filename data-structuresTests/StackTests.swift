@@ -11,14 +11,24 @@ import Fakery
 
 @testable import dataStructures
 class StackTests: XCTestCase {
+    var faker : Faker!
     var emptyTestStringStack : Stack<String>!
     var emptyTestIntStack : Stack<Int>!
     var emptyTestDoubleStack : Stack<Double>!
+    
+    var testStringStack : Stack<String>!
+    var testIntStack : Stack<Int>!
+    var testDoubleStack : Stack<Double>!
     override func setUp() {
         super.setUp()
+        faker = Faker()
         emptyTestIntStack = Stack<Int>()
         emptyTestStringStack = Stack<String>()
         emptyTestDoubleStack = Stack<Double>()
+        
+        testStringStack = Stack<String>()
+        testIntStack = Stack<Int>()
+        testDoubleStack = Stack<Double>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -29,6 +39,15 @@ class StackTests: XCTestCase {
         emptyTestIntStack = nil
         emptyTestStringStack = nil
         emptyTestDoubleStack = nil
+    }
+    
+    func testStringStackPush(){
+        let random : Int = faker.number.randomInt()
+        for _ in 1...random {
+            testStringStack.push(data: faker.address.city())
+        }
+        
+        XCTAssert(testStringStack.size() == random)
     }
     
     func testStringStackEmptyStackPeekThrowsError(){
