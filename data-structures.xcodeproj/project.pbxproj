@@ -15,6 +15,7 @@
 		CD3422C61F15428000995692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C51F15428000995692 /* Assets.xcassets */; };
 		CD3422C91F15428000995692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C71F15428000995692 /* LaunchScreen.storyboard */; };
 		CD3422D41F15428000995692 /* data_structuresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3422D31F15428000995692 /* data_structuresTests.swift */; };
+		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		CD3422CF1F15428000995692 /* data-structuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "data-structuresTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3422D31F15428000995692 /* data_structuresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data_structuresTests.swift; sourceTree = "<group>"; };
 		CD3422D51F15428000995692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				CD3422C51F15428000995692 /* Assets.xcassets */,
 				CD3422C71F15428000995692 /* LaunchScreen.storyboard */,
 				CD3422CA1F15428000995692 /* Info.plist */,
+				CDAE7A131F154FB500B8FB51 /* data-structures */,
 			);
 			path = "data-structures";
 			sourceTree = "<group>";
@@ -115,6 +118,14 @@
 				CD3422D51F15428000995692 /* Info.plist */,
 			);
 			path = "data-structuresTests";
+			sourceTree = "<group>";
+		};
+		CDAE7A131F154FB500B8FB51 /* data-structures */ = {
+			isa = PBXGroup;
+			children = (
+				CDAE7A111F154FAD00B8FB51 /* stack.swift */,
+			);
+			name = "data-structures";
 			sourceTree = "<group>";
 		};
 		E12D53321BF410482343FD76 /* Pods */ = {
@@ -333,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD3422C11F15428000995692 /* ViewController.swift in Sources */,
+				CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */,
 				CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
