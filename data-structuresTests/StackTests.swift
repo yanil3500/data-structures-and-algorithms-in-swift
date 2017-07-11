@@ -160,6 +160,70 @@ class StackTests: XCTestCase {
         XCTAssert(try testDoubleStack.peek() == lastItem)
     }
     
+    func testStringStackDescription() {
+        //This function asserts that the description computed property is of type String
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        for _ in 1...random {
+            testStringStack.push(data: faker.address.city())
+        }
+        XCTAssert(type(of:testStringStack.description) == type(of:String()))
+    }
+    
+    func testIntStackDescription() {
+        //This function asserts that the description computed property is of type String
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        for _ in 1...random {
+            testIntStack.push(data: faker.number.randomInt())
+        }
+        XCTAssert(type(of: testIntStack.description) == type(of: String()))
+    }
+    
+    func testDoubleStackDescription() {
+        //This function asserts that the description computed property is of type String
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        for _ in 1...random {
+            testDoubleStack.push(data: faker.number.randomDouble())
+        }
+        XCTAssert(type(of: testDoubleStack.description) == type(of: String()))
+    }
+    
+    
+    func testStringStackPop(){
+        //This function assert that this method returns and removes the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        var lastItem : String = ""
+        for _ in 1...random {
+            lastItem = faker.address.city()
+            testStringStack.push(data: lastItem)
+        }
+        
+        XCTAssert(try testStringStack.pop() == lastItem)
+        
+    }
+    
+    func testIntStackPop(){
+        //This function assert that this method returns and removes the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 1, max: 301)
+        var lastItem : Int = 0
+        for _ in 1...random{
+            lastItem = faker.number.randomInt()
+            testIntStack.push(data: lastItem)
+        }
+        XCTAssert(try testIntStack.pop() == lastItem)
+    }
+    
+    func testDoubleStackPop(){
+        //This function assert that this method returns and removes the last item that was pushed onto the stack.
+        let random : Int = faker.number.randomInt(min: 1, max: 306)
+        var lastItem : Double = 0
+        for _ in 1...random{
+            lastItem = faker.number.randomDouble()
+            testDoubleStack.push(data: lastItem)
+        }
+        XCTAssert(try testDoubleStack.pop() == lastItem)
+    }
+
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
