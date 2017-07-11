@@ -7,44 +7,45 @@
 //
 
 import XCTest
+import Fakery
 
 @testable import dataStructures
 class StackTests: XCTestCase {
-    var testStringStack : Stack<String>!
-    var testIntStack : Stack<Int>!
-    var testDoubleStack : Stack<Double>!
+    var emptyTestStringStack : Stack<String>!
+    var emptyTestIntStack : Stack<Int>!
+    var emptyTestDoubleStack : Stack<Double>!
     override func setUp() {
         super.setUp()
-        testIntStack = Stack<Int>()
-        testStringStack = Stack<String>()
-        testDoubleStack = Stack<Double>()
+        emptyTestIntStack = Stack<Int>()
+        emptyTestStringStack = Stack<String>()
+        emptyTestDoubleStack = Stack<Double>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
+        print("The tearDown called")
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
-        testIntStack = nil
-        testStringStack = nil
-        testDoubleStack = nil
+        emptyTestIntStack = nil
+        emptyTestStringStack = nil
+        emptyTestDoubleStack = nil
     }
     
     func testStringStackEmptyStackPeekThrowsError(){
-        XCTAssertThrowsError(try testStringStack.peek())
+        //This function asserts that this method will throw an error if attempting to peek into an empty stack.
+        XCTAssertThrowsError(try emptyTestStringStack.peek())
     }
     
     func testIntStackPeekEmptyStackPeekThrowsError(){
-        XCTAssertThrowsError(try testIntStack.peek())
+        //This function asserts that this method will throw an error if attempting to peek into an empty stack.
+        XCTAssertThrowsError(try emptyTestIntStack.peek())
     }
     
     func testDoubleStackPeekEmptyStackPeekThrowsError(){
-        XCTAssertThrowsError(try testDoubleStack.peek())
+        //This function asserts that this method will throw an error if attempting to peek into an empty stack.
+        XCTAssertThrowsError(try emptyTestDoubleStack.peek())
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
