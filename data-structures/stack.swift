@@ -16,3 +16,16 @@ class Node<Element>{
         self.data = data
     }
 }
+
+class Stack<Element>: CustomStringConvertible {
+    var top : Node<Element>?
+    var description : String {
+        var str : String = "[Stack] -> "
+        var curr : Node? = top
+        while curr != nil, let val = curr?.data {
+            str += "[\(val)] -> "
+        }
+        str += "[nil]"
+        return str
+    }
+}
