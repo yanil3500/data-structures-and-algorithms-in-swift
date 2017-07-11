@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum StackError : Error {
+    case EmptyStack(String)
+}
+
 class Node<Element>{
     /*This will be used as a supporting class for Stack ADT.*/
     var data : Element
@@ -48,4 +52,5 @@ extension Stack {
             self.length += 1
         }
     }
+    
 }
