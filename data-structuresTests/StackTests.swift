@@ -33,7 +33,6 @@ class StackTests: XCTestCase {
     }
     
     override func tearDown() {
-        print("The tearDown called")
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         emptyTestIntStack = nil
@@ -42,13 +41,59 @@ class StackTests: XCTestCase {
     }
     
     func testStringStackPush(){
-        let random : Int = faker.number.randomInt()
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
         for _ in 1...random {
             testStringStack.push(data: faker.address.city())
         }
         
         XCTAssert(testStringStack.size() == random)
+        let randomRemove : Int = faker.number.randomInt(min: 2, max: 23)
+        for _ in 1...randomRemove{
+            do {
+                try testStringStack.pop()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        XCTAssert(testStringStack.size() == random - randomRemove)
     }
+    
+    func testIntStackPush(){
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        for _ in 1...random {
+            testIntStack.push(data: faker.number.randomInt())
+        }
+        
+        let randomRemove : Int = faker.number.randomInt(min: 2, max: 23)
+        XCTAssert(testIntStack.size() == random)
+        for _ in 1...randomRemove{
+            do {
+                try testIntStack.pop()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        XCTAssert(testIntStack.size() == random - randomRemove, "Stack Size: \(testIntStack.size())")
+    }
+    
+    func testDoubleStackPush(){
+        let random : Int = faker.number.randomInt(min: 24, max: 301)
+        for _ in 1...random {
+            testDoubleStack.push(data: faker.number.randomDouble())
+        }
+        
+        XCTAssert(testDoubleStack.size() == random)
+        let randomRemove : Int = faker.number.randomInt(min: 2, max: 23)
+        for _ in 1...randomRemove{
+            do {
+                try testDoubleStack.pop()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        XCTAssert(testDoubleStack.size() == random - randomRemove)
+    }
+    
     
     func testStringStackEmptyStackPeekThrowsError(){
         //This function asserts that this method will throw an error if attempting to peek into an empty stack.
