@@ -24,6 +24,9 @@ class Node<Element>{
 class Stack<Element>: CustomStringConvertible {
     fileprivate var top : Node<Element>?
     fileprivate var length : Int = 0
+    var isEmpty : Bool {
+        return self.length == 0
+    }
     internal var description : String {
         var str : String = "[Stack] -> "
         var curr : Node? = top
@@ -50,6 +53,21 @@ extension Stack {
             newItem.next = self.top
             self.top = newItem
             self.length += 1
+        }
+    }
+    
+    func pop() throws -> Element? {
+        /*
+         This method removes the last item added to the stack and reassigns a new top item.
+         Complexity: O(1) Constant Time
+         */
+        if self.isEmpty{
+            throw StackError.EmptyStack("Cannot remove items from an empty stack.")
+        } else {
+            guard let removed : Element = self.top?.data else { return nil }
+            self.length -= 1
+            self.top = self.top?.next
+            return removed
         }
     }
     
