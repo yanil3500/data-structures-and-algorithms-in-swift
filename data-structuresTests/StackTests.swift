@@ -8,17 +8,37 @@
 
 import XCTest
 
-@testable import data-structures
+@testable import dataStructures
 class StackTests: XCTestCase {
-    
+    var testStringStack : Stack<String>!
+    var testIntStack : Stack<Int>!
+    var testDoubleStack : Stack<Double>!
     override func setUp() {
         super.setUp()
+        testIntStack = Stack<Int>()
+        testStringStack = Stack<String>()
+        testDoubleStack = Stack<Double>()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        testIntStack = nil
+        testStringStack = nil
+        testDoubleStack = nil
+    }
+    
+    func testStringStackEmptyStackPeekThrowsError(){
+        XCTAssertThrowsError(try testStringStack.peek())
+    }
+    
+    func testIntStackPeekEmptyStackPeekThrowsError(){
+        XCTAssertThrowsError(try testIntStack.peek())
+    }
+    
+    func testDoubleStackPeekEmptyStackPeekThrowsError(){
+        XCTAssertThrowsError(try testDoubleStack.peek())
     }
     
     func testExample() {
