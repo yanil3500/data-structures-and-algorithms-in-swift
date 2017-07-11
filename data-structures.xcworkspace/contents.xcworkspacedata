@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:data-structures.xcodeproj">
+      location = "group:/Users/elyanilliranzocastro/data-structures-in-swift/data-structures-and-algorithms-in-swift/dataStructures.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
