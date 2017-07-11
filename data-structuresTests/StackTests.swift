@@ -198,7 +198,7 @@ class StackTests: XCTestCase {
         }
         
         XCTAssert(try testStringStack.pop() == lastItem)
-        
+        XCTAssertEqual(testStringStack.size(), random - 1)
     }
     
     func testIntStackPop(){
@@ -210,6 +210,7 @@ class StackTests: XCTestCase {
             testIntStack.push(data: lastItem)
         }
         XCTAssert(try testIntStack.pop() == lastItem)
+        XCTAssertEqual(testIntStack.size(), random - 1)
     }
     
     func testDoubleStackPop(){
@@ -221,6 +222,7 @@ class StackTests: XCTestCase {
             testDoubleStack.push(data: lastItem)
         }
         XCTAssert(try testDoubleStack.pop() == lastItem)
+        XCTAssertEqual(testDoubleStack.size(), random - 1)
     }
 
     
