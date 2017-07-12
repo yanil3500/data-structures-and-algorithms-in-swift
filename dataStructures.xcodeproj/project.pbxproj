@@ -14,6 +14,8 @@
 		CD3422C41F15428000995692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C21F15428000995692 /* Main.storyboard */; };
 		CD3422C61F15428000995692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C51F15428000995692 /* Assets.xcassets */; };
 		CD3422C91F15428000995692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C71F15428000995692 /* LaunchScreen.storyboard */; };
+		CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */; };
+		CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C761F16A04300748162 /* BubbleSortTests.swift */; };
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		CD3422CA1F15428000995692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD3422CF1F15428000995692 /* dataStructuresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dataStructuresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3422D51F15428000995692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingExtensionsOnArray.swift; sourceTree = "<group>"; };
+		CD446C761F16A04300748162 /* BubbleSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSortTests.swift; sourceTree = "<group>"; };
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,7 @@
 			children = (
 				CD3422BE1F15428000995692 /* AppDelegate.swift */,
 				CD3422C01F15428000995692 /* ViewController.swift */,
+				CD93C6501F15ABAA00D3657F /* algorithms */,
 				CD3422C21F15428000995692 /* Main.storyboard */,
 				CD3422C51F15428000995692 /* Assets.xcassets */,
 				CD3422C71F15428000995692 /* LaunchScreen.storyboard */,
@@ -117,8 +122,17 @@
 			children = (
 				CD3422D51F15428000995692 /* Info.plist */,
 				CDAE7A141F15563500B8FB51 /* StackTests.swift */,
+				CD446C761F16A04300748162 /* BubbleSortTests.swift */,
 			);
 			path = "data-structuresTests";
+			sourceTree = "<group>";
+		};
+		CD93C6501F15ABAA00D3657F /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */,
+			);
+			name = algorithms;
 			sourceTree = "<group>";
 		};
 		CDAE7A131F154FB500B8FB51 /* data-structures */ = {
@@ -347,6 +361,7 @@
 				CD3422C11F15428000995692 /* ViewController.swift in Sources */,
 				CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */,
 				CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */,
+				CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */,
+				CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
