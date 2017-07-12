@@ -12,15 +12,15 @@ import Fakery
 @testable import dataStructures
 class BubbleSortTests: XCTestCase {
     var faker: Faker!
-    var testCharacters : [Character]!
+    var testCharacters : Array<Character>!
     var testInts : [Int]!
     var testDouble : [Double]!
     
     override func setUp() {
         super.setUp()
-        testCharacters = []
-        testInts = []
-        testDouble = []
+        testCharacters = [Character]()
+        testInts = [Int]()
+        testDouble = [Double]()
         faker = Faker()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -38,7 +38,12 @@ class BubbleSortTests: XCTestCase {
         for _ in 1...25{
             testCharacters.append(Character(faker.lorem.character()))
         }
-        print(testCharacters)
+         XCTAssertNotEqual(testCharacters, testCharacters.bubbleSort()!)
+    }
+    
+    func testEmptyArrayBubbleSortReturnNil(){
+        //Test to see that bubbleSort returns nil if it is empty.
+        XCTAssertNil(testCharacters?.bubbleSort())
     }
     
     func testExample() {
