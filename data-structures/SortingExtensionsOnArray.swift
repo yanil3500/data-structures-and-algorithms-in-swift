@@ -15,21 +15,19 @@ extension Array where Iterator.Element: Comparable{
      The pass through the collection is repeated until no swaps are needed, resulting in the sorted 
      collection.
      */
-    func bubbleSort() -> [Element]?{
+    mutating func bubbleSort(){
         //Bubble sort that returns a sorted collection.
-        var arr = self
-        guard !arr.isEmpty else { return nil }
+        guard !self.isEmpty else { return  }
         for i in stride(from: 0, to: self.count, by: 1){
             var didSwap : Bool = false
             for j in stride (from: i + 1, to: self.count, by: 1){
-                if arr[j] < arr[i]{
-                    swap(&arr[j], &arr[i])
+                if self[j] < self[i]{
+                    swap(&self[j], &self[i])
                     didSwap = true
                 }
             }
             guard didSwap else { break }
         }
-        return arr
     }
 }
 
