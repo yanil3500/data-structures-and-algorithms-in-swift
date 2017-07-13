@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array where Element: Comparable{
+extension Array where Iterator.Element: Comparable{
     /*
      Bubble sort is a sorting algorithm that repeatedly steps through a given collection,
      comparing each pair of adjacent elements and swapping them if they are in the wrong order.
@@ -16,18 +16,18 @@ extension Array where Element: Comparable{
      collection.
      */
     func bubbleSort() -> [Element]?{
-        //Bubble sort that mutates the existing collection in place.
+        //Bubble sort that returns a sorted collection.
         var arr = self
-        guard !isEmpty else { return nil }
+        guard !arr.isEmpty else { return nil }
         for i in stride(from: 0, to: self.count, by: 1){
             var didSwap : Bool = false
-            for j in stride (from: 1, to: self.count, by: 1){
-                if self[i] < self[j]{
-                    swap(&arr[i], &arr[j])
+            for j in stride (from: i + 1, to: self.count, by: 1){
+                if arr[j] < arr[i]{
+                    swap(&arr[j], &arr[i])
                     didSwap = true
                 }
             }
-            guard !didSwap else { break }
+            guard didSwap else { break }
         }
         return arr
     }

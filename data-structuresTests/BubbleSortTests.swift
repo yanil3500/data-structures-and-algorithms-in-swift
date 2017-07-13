@@ -14,13 +14,11 @@ class BubbleSortTests: XCTestCase {
     var faker: Faker!
     var testCharacters : Array<Character>!
     var testInts : [Int]!
-    var testDouble : [Double]!
     
     override func setUp() {
         super.setUp()
         testCharacters = [Character]()
         testInts = [Int]()
-        testDouble = [Double]()
         faker = Faker()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -30,11 +28,10 @@ class BubbleSortTests: XCTestCase {
         super.tearDown()
         testCharacters = nil
         testInts = nil
-        testDouble = nil
     }
     
     func testCharactersArrayBubbleSort(){
-        //Testing bubbleSort with 25 elements
+        //Testing bubbleSort with 25 elements.
         for _ in 1...25{
             testCharacters.append(Character(faker.lorem.character()))
         }
@@ -46,15 +43,23 @@ class BubbleSortTests: XCTestCase {
         XCTAssertNil(testCharacters?.bubbleSort())
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIntsArraySortingAMillionInt(){
+        self.measure{
+            //Testing bubbleSort with 10000 elements.
+            for _ in 1...1000{
+                self.testInts.append(self.faker.number.randomInt())
+            }
+            self.testInts.bubbleSort()  
+        }
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
+        
         self.measure {
             // Put the code you want to measure the time of here.
+
         }
     }
     
