@@ -8,14 +8,21 @@
 
 import Foundation
 
+
+func bubblesort<Element: Comparable>(items: inout [Element]){
+    guard !items.isEmpty else { return }
+    var didSwap : Bool = false
+    repeat {
+        print("Money")
+    } while !didSwap
+}
+
 extension Array where Iterator.Element: Comparable{
     /*
      Bubble sort is a sorting algorithm that repeatedly steps through a given collection,
      comparing each pair of adjacent elements and swapping them if they are in the wrong order.
      The pass through the collection is repeated until no swaps are needed, resulting in the sorted 
      collection.
-     
-     https://en.wikipedia.org/wiki/Bubble_sort
      */
     mutating func bubbleSort(){
         //Bubble sort that returns a sorted collection.
@@ -45,8 +52,6 @@ extension Array where Iterator.Element: Comparable {
      the list.
      Algorithms proceeds by finding the smallest element in the unsorted subcollection, exchanging it with the leftmost
      unsorted element (putting it in sorted order) and moving the sublist boundaries one element to the right.
-     
-     https://en.wikipedia.org/wiki/Selection_sort
      */
     mutating func selectionSort(){
         for i in stride(from: 0, to: self.count, by: 1){
