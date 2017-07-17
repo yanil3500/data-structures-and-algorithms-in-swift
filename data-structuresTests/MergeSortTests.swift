@@ -16,7 +16,7 @@ class MergeSortTests: XCTestCase {
     override func setUp() {
         super.setUp()
         faker = Faker()
-        nums = []
+        nums = [Int]()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -29,12 +29,13 @@ class MergeSortTests: XCTestCase {
     
     func testMergeSortWith1000Element() {
         for _ in 0...1000 {
-            let random : Int = MergeSort.randomInts(min: -520, max: 245)
+            let random : Int = MergeSort.randomInts(min: -10, max: 1234)
+            print(random)
             nums.append(random)
         }
         
         self.measure {
-            nums = MergeSort.mergesort(collection: nums)
+            self.nums = MergeSort.mergesort(collection: self.nums)
         }
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
