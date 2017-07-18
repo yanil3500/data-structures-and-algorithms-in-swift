@@ -34,6 +34,7 @@ This repo contains Swift implementations of classic data structures and algorith
 - Selection sort is an in-place comparison-based sorting algorithm.
 - Selection sort runs in O(n^2), making it inefficient on a large collection of elements.
 - Selection sort does have some performance advantages over more complicated sorts in certain situations, particularly where external memory is limited.
+
 -**Time Complexity**:
 - Worst Case Performance: O(n<sup>2</sup>) 
 - Best Case Performance: O(n<sup>2</sup>)
