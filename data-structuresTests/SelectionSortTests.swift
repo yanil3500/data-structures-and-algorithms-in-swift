@@ -19,6 +19,7 @@ class SelectionSortTests: XCTestCase {
         faker = Faker()
         ints = []
         doubles = []
+
     }
     
     func testsSelectionSortWithInts(){

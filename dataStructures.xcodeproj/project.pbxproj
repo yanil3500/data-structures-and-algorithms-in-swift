@@ -10,6 +10,8 @@
 		8692332A8F749D694CCC0C9A /* Pods_data_structures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C31E916D5FC7B72109AE98E2 /* Pods_data_structures.framework */; };
 		B2086D2BD00789E719D5995E /* Pods_data_structuresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80E6EF1B148EEE01342C0A /* Pods_data_structuresTests.framework */; };
 		CD0D11451F18278A00C801E1 /* SelectionSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0D11441F18278A00C801E1 /* SelectionSortTests.swift */; };
+		CD33140F1F1D3243004DB867 /* mergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33140E1F1D3243004DB867 /* mergeSort.swift */; };
+		CD3314111F1D39C2004DB867 /* MergeSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3314101F1D39C2004DB867 /* MergeSortTests.swift */; };
 		CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3422BE1F15428000995692 /* AppDelegate.swift */; };
 		CD3422C11F15428000995692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3422C01F15428000995692 /* ViewController.swift */; };
 		CD3422C41F15428000995692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C21F15428000995692 /* Main.storyboard */; };
@@ -17,6 +19,7 @@
 		CD3422C91F15428000995692 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3422C71F15428000995692 /* LaunchScreen.storyboard */; };
 		CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */; };
 		CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C761F16A04300748162 /* BubbleSortTests.swift */; };
+		CD5780421F199B2C00E2897C /* radixSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5780411F199B2C00E2897C /* radixSort.swift */; };
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,8 @@
 		C09A32B53F77E88B56BE5EAE /* Pods-data-structures.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-data-structures.release.xcconfig"; path = "Pods/Target Support Files/Pods-data-structures/Pods-data-structures.release.xcconfig"; sourceTree = "<group>"; };
 		C31E916D5FC7B72109AE98E2 /* Pods_data_structures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_data_structures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0D11441F18278A00C801E1 /* SelectionSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSortTests.swift; sourceTree = "<group>"; };
+		CD33140E1F1D3243004DB867 /* mergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mergeSort.swift; sourceTree = "<group>"; };
+		CD3314101F1D39C2004DB867 /* MergeSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSortTests.swift; sourceTree = "<group>"; };
 		CD3422BB1F15428000995692 /* dataStructures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dataStructures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3422BE1F15428000995692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD3422C01F15428000995692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +55,7 @@
 		CD3422D51F15428000995692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingExtensionsOnArray.swift; sourceTree = "<group>"; };
 		CD446C761F16A04300748162 /* BubbleSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSortTests.swift; sourceTree = "<group>"; };
+		CD5780411F199B2C00E2897C /* radixSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radixSort.swift; sourceTree = "<group>"; };
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +132,7 @@
 				CDAE7A141F15563500B8FB51 /* StackTests.swift */,
 				CD446C761F16A04300748162 /* BubbleSortTests.swift */,
 				CD0D11441F18278A00C801E1 /* SelectionSortTests.swift */,
+				CD3314101F1D39C2004DB867 /* MergeSortTests.swift */,
 			);
 			path = "data-structuresTests";
 			sourceTree = "<group>";
@@ -134,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */,
+				CD33140E1F1D3243004DB867 /* mergeSort.swift */,
+				CD5780411F199B2C00E2897C /* radixSort.swift */,
 			);
 			name = algorithms;
 			sourceTree = "<group>";
@@ -361,6 +370,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD5780421F199B2C00E2897C /* radixSort.swift in Sources */,
+				CD33140F1F1D3243004DB867 /* mergeSort.swift in Sources */,
 				CD3422C11F15428000995692 /* ViewController.swift in Sources */,
 				CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */,
 				CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */,
@@ -374,6 +385,7 @@
 			files = (
 				CD0D11451F18278A00C801E1 /* SelectionSortTests.swift in Sources */,
 				CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */,
+				CD3314111F1D39C2004DB867 /* MergeSortTests.swift in Sources */,
 				CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
