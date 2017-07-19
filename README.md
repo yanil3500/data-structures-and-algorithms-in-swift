@@ -1,6 +1,5 @@
 # Data Structures and Algorithms in Swift [![Build Status](https://travis-ci.org/yanil3500/data-structures-and-algorithms-in-swift.svg?branch=master)](https://travis-ci.org/yanil3500/data-structures-and-algorithms-in-swift)
 This repo contains Swift implementations of classic data structures and algorithms.
-
 **Stack**
 - **Implementation**: `stack.swift`
 - **Tests**: `StackTests.swift`
@@ -11,6 +10,18 @@ This repo contains Swift implementations of classic data structures and algorith
 
     push(data: Element) Complexity: O(1)
     pop() -> Element Comeplexity: O(1)
+    peek() -> Element Complexity: O(1)
+
+**Queue**
+- **Implementation**: `queue.swift`
+- **Tests**: `QueueTests.swift`
+- Source [Wikipedia](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)))
+- A Queue is a linear data structure in which the addition of elements takes place on one end and removal of elements takes place on the other.
+
+-*Stack Operations*:
+
+    enqueue(data: Element) Complexity: O(1)
+    dequeue() -> Element Comeplexity: O(1)
     peek() -> Element Complexity: O(1)
 
 **Bubble Sort**
@@ -45,7 +56,7 @@ This repo contains Swift implementations of classic data structures and algorith
 - Source [Wikipedia](https://en.wikipedia.org/wiki/Merge_sort)
 - Merge sort is an efficient, general-purpose sorting algorithm.
 - Merge sort can be implemented to be a stable sort.
-    - Make merge sort stable by use the `<=` relational operator when merging sublists,
+    - Make merge sort stable by using the `<=` relational operator when merging sublists,
 - Conceptually, a merge sort works as follows:
     - Divides the unsorted list into <em>**n**</em> sublists, each containing 1 element (a list of 1 element is considered sorted.)
     - Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining.
@@ -53,3 +64,7 @@ This repo contains Swift implementations of classic data structures and algorith
 -**Time Complexity**:
 - Worst Case Performance: O(n log n)
 - Best Case Performance: O(n log n)
+
+
+**Libraries Used**:
+- [Fakery](https://github.com/vadymmarkov/Fakery) - Used to generate test data. 
