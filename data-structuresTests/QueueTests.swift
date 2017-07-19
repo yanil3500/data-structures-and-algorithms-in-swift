@@ -49,7 +49,7 @@ class QueueTests: XCTestCase {
         }
     }
     func testDequeueThrowsError(){
-        XCTAssertThrowsError(testQueue.dequeue(), "Error was thrown.") { (error) in
+        XCTAssertThrowsError(try testQueue.dequeue(), "Error was thrown.") { (error) in
             print(error.localizedDescription)
         }
     }
