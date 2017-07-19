@@ -58,9 +58,21 @@ class QueueTests: XCTestCase {
             testQueue = Queue(elements: elements)
             do {
                 guard let dequeuedVal : Int = try testQueue.dequeue() else { return }
-                print("Elements: \(elements), Expected Results: \(result)")
                 XCTAssertEqual(dequeuedVal, result)
             } catch (let description){
+                print(description.localizedDescription)
+            }
+        }
+    }
+    
+    func testPeek(){
+        //The test asserts that the first inserted value is the one returned by the peek method.
+        for (elements, result) in testCasesForDequeue {
+            testQueue = Queue(elements: elements)
+            do {
+                guard let peekVal : Int = try testQueue.peek() else { return }
+                XCTAssertEqual(peekVal, result)
+            } catch (let description) {
                 print(description.localizedDescription)
             }
         }
