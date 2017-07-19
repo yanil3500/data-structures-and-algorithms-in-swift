@@ -44,7 +44,7 @@ This repo contains Swift implementations of classic data structures and algorith
 - Source [Wikipedia](https://en.wikipedia.org/wiki/Merge_sort)
 - Merge sort is an efficient, general-purpose sorting algorithm.
 - Merge sort can be implemented to be a stable sort.
-    - Make merge sort stable by use the `<=` relational operator when merging sublists,
+    - Make merge sort stable by using the `<=` relational operator when merging sublists,
 - Conceptually, a merge sort works as follows:
     - Divides the unsorted list into <em>**n**</em> sublists, each containing 1 element (a list of 1 element is considered sorted.)
     - Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining.

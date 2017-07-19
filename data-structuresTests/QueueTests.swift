@@ -53,6 +53,7 @@ class QueueTests: XCTestCase {
     }
     
     func testDequeue(){
+        //The test asserts that the first inserted value is the first one to be dequeued.
         for (elements, result) in testCasesForDequeue {
             testQueue = Queue(elements: elements)
             do {
@@ -65,12 +66,14 @@ class QueueTests: XCTestCase {
         }
     }
     func testDequeueThrowsError(){
+        //The test asserts that calling dequeue on an empty queue will throw an error.
         XCTAssertThrowsError(try testQueue.dequeue(), "Error was thrown.") { (error) in
             print(error.localizedDescription)
         }
     }
     
     func testEnqueue(){
+        //The test asserts that number of elements enqueued is properly reflected on the queue's length property
         for (elements, result) in testCasesForEnqueue {
             testQueue = Queue(elements: elements)
             XCTAssert(testQueue.length == result)
@@ -89,6 +92,11 @@ class QueueTests: XCTestCase {
             }
             XCTAssert(testQueue.length == result)
         }
+    }
+    
+    func testsIsEmpty(){
+        //The test asserts that the isEmpty computed property is in fact working.
+        XCTAssert(testQueue.isEmpty == true)
     }
     
 }
