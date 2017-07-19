@@ -12,16 +12,9 @@ enum QueueError: Error {
     case emptyQueue(String)
 }
 
-class QueueNode<Element>: Node<Element>{
-    override init(data: Element) {
-        super.init(data: data)
-    }
-}
-
-
 class Queue<Element>: CustomStringConvertible {
-    var front : QueueNode<Element>?
-    var rear : QueueNode<Element>?
+    var front : Node<Element>?
+    var rear : Node<Element>?
     var length : Int = 0
     var isEmpty : Bool {
         return self.length == 0
@@ -34,8 +27,13 @@ class Queue<Element>: CustomStringConvertible {
 extension Queue{
     func enqueue(data: Element){
         if front == nil {
-            front = QueueNode(data: data)
+            front = Node(data: data)
+            self.length += 1
             rear = front
+        } else {
+            rear?.next = Node(data: data)
+            self.length += 1
+            rear = rear?.next
         }
     }
 }
