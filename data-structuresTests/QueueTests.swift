@@ -94,6 +94,14 @@ class QueueTests: XCTestCase {
         }
     }
     
+    func testIsEmptyWithElements(){
+        //The test asserts that isEmpty will evaluate to false if it contains any elements.
+        for (elements, _) in testCasesForEnqueue {
+            testQueue = Queue(elements: elements)
+            XCTAssertFalse(testQueue.isEmpty)
+        }
+    }
+    
     func testsIsEmpty(){
         //The test asserts that the isEmpty computed property is in fact working.
         XCTAssert(testQueue.isEmpty == true)
