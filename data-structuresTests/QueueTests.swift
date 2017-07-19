@@ -17,7 +17,7 @@ class QueueTests: XCTestCase {
 //    }
 //    
     var testQueue : Queue<Int>!
-    var testCasesForDequeue : [([Int], Int)]
+    var testCasesForDequeue : [([Int], Int)]!
     override func setUp() {
         super.setUp()
         testQueue = Queue()
@@ -27,11 +27,10 @@ class QueueTests: XCTestCase {
             ([100, 3, 5, 6, 7, 2], 100),
             ([7],7)
         ]
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         testQueue = nil
         testCasesForDequeue = nil
@@ -40,6 +39,18 @@ class QueueTests: XCTestCase {
     func testDequeue(){
         for (elements, result) in testCasesForDequeue {
             testQueue = Queue(elements: elements)
+            do {
+                guard let dequeuedVal : Int = try testQueue.dequeue() else { return }
+                print("Elements: \(elements), Expected Results: \(result)")
+                XCTAssertEqual(dequeuedVal, result)
+            } catch (let description){
+                print(description)
+            }
+        }
+    }
+    func testDequeueThrowsError(){
+        XCTAssertThrowsError(testQueue.dequeue(), "Error was thrown.") { (error) in
+            print(error.localizedDescription)
         }
     }
     
