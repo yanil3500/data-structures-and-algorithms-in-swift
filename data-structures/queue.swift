@@ -36,4 +36,22 @@ extension Queue{
             rear = rear?.next
         }
     }
+    
+    
+    func dequeue() throws -> Element? {
+        if self.length == 0{
+            throw QueueError.emptyQueue("The Queue is empty.")
+        } else {
+            if let frontVal : Element = self.front?.data, self.front === self.rear && self.front != nil {
+                self.front = nil
+                self.rear = nil
+                self.length -= 1
+                return frontVal
+            }
+            guard let frontVal : Element = self.front?.data else { return nil }
+            self.front = self.front?.next
+            self.length -= 1
+            return frontVal
+        }
+    }
 }
