@@ -81,6 +81,7 @@ class QueueTests: XCTestCase {
     }
     
     func testsLengthPropertyToSeeItsIncrementingAndDecrementingProperly(){
+        //The test asserts that the length of the queue is being properly decremented with each removal of an element
         for (elements, numberOfRemovals, result) in testCasesForEnqueueAndDequeueAnXAmountOfTimes {
             testQueue = Queue(elements: elements)
             for _ in 0..<numberOfRemovals {
@@ -98,6 +99,7 @@ class QueueTests: XCTestCase {
         //The test asserts that isEmpty will evaluate to false if it contains any elements.
         for (elements, _) in testCasesForEnqueue {
             testQueue = Queue(elements: elements)
+            print("elements: \(elements)")
             XCTAssertFalse(testQueue.isEmpty)
         }
     }
