@@ -19,6 +19,7 @@ class QueueTests: XCTestCase {
     var testQueue : Queue<Int>!
     var testCasesForDequeue : [([Int], Int)]!
     var testCasesForEnqueue : [([Int], Int)]!
+    var testCasesForEnqueueAndDequeueAnXAmountOfTimes : [([Int], Int, Int)]!
     override func setUp() {
         super.setUp()
         testQueue = Queue()
@@ -34,6 +35,12 @@ class QueueTests: XCTestCase {
             ([100, 3, 5, 6, 7, 2], 6),
             ([7],1)
         ]
+        testCasesForEnqueueAndDequeueAnXAmountOfTimes = [
+            ([1, 2, 5, 6, 10, 212, 34, 5, 89, 1000], 3, 7),
+            ([55, 78, 34, 10, 12, 3212, 343, 53, 893], 4, 5),
+            ([100, 3, 5, 6, 7, 2], 5, 1),
+            ([7] ,1, 0)
+        ]
 
     }
     
@@ -41,6 +48,8 @@ class QueueTests: XCTestCase {
         super.tearDown()
         testQueue = nil
         testCasesForDequeue = nil
+        testCasesForEnqueue = nil
+        testCasesForEnqueueAndDequeueAnXAmountOfTimes = nil
     }
     
     func testDequeue(){
@@ -51,7 +60,7 @@ class QueueTests: XCTestCase {
                 print("Elements: \(elements), Expected Results: \(result)")
                 XCTAssertEqual(dequeuedVal, result)
             } catch (let description){
-                print(description)
+                print(description.localizedDescription)
             }
         }
     }
@@ -64,6 +73,20 @@ class QueueTests: XCTestCase {
     func testEnqueue(){
         for (elements, result) in testCasesForEnqueue {
             testQueue = Queue(elements: elements)
+            XCTAssert(testQueue.length == result)
+        }
+    }
+    
+    func testsLengthPropertyToSeeItsIncrementingAndDecrementingProperly(){
+        for (elements, numberOfRemovals, result) in testCasesForEnqueueAndDequeueAnXAmountOfTimes {
+            testQueue = Queue(elements: elements)
+            for _ in 0..<numberOfRemovals {
+                do {
+                    try testQueue.dequeue()
+                } catch (let description) {
+                    print(description.localizedDescription)
+                }
+            }
             XCTAssert(testQueue.length == result)
         }
     }
