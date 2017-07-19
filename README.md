@@ -12,6 +12,18 @@ This repo contains Swift implementations of classic data structures and algorith
     pop() -> Element Comeplexity: O(1)
     peek() -> Element Complexity: O(1)
 
+**Queue**
+- **Implementation**: `queue.swift`
+- **Tests**: `QueueTests.swift`
+- Source [Wikipedia](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)))
+- A Queue is a linear data structure in which the addition of elements takes place on one end and removal of elements takes place on the other.
+
+-*Stack Operations*:
+
+    enqueue(data: Element) Complexity: O(1)
+    dequeue() -> Element Comeplexity: O(1)
+    peek() -> Element Complexity: O(1)
+
 **Bubble Sort**
 - **Implementation**: `SortingExtensionsOnArray.swift`
 - **Tests**: `BubbleSortTests.swift`
