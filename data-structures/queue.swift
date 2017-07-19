@@ -26,6 +26,7 @@ class Queue<Element>: CustomStringConvertible {
 
 extension Queue{
     func enqueue(data: Element){
+        // The enqueue method adds items to our queue.
         if front == nil {
             front = Node(data: data)
             self.length += 1
@@ -39,6 +40,7 @@ extension Queue{
     
     
     func dequeue() throws -> Element? {
+        // The dequeue method removes items from the queue in the order in which they were added.
         if self.length == 0{
             throw QueueError.emptyQueue("The Queue is empty.")
         } else {
