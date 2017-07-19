@@ -77,6 +77,13 @@ class QueueTests: XCTestCase {
             }
         }
     }
+    
+    func testPeekThrows(){
+        //The test asserts that calling peek on an empty queue will throw an error.
+        XCTAssertThrowsError(try testQueue.peek(), "Error was thrown.") { (error) in
+            print(error.localizedDescription)
+        }
+    }
     func testDequeueThrowsError(){
         //The test asserts that calling dequeue on an empty queue will throw an error.
         XCTAssertThrowsError(try testQueue.dequeue(), "Error was thrown.") { (error) in
