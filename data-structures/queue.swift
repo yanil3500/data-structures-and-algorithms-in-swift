@@ -20,7 +20,14 @@ class Queue<Element>: CustomStringConvertible {
         return self.length == 0
     }
     var description: String {
-        return ""
+        var current : Node<Element>? = front
+        var str : String = "Queue: \n"
+        while let currVal : Element = current?.data, current != nil {
+            str += "[\(currVal)] -> "
+            current = current?.next
+        }
+        str += "[nil]"
+        return str
     }
 }
 
