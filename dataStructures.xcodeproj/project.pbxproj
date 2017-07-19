@@ -22,6 +22,7 @@
 		CD5780421F199B2C00E2897C /* radixSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5780411F199B2C00E2897C /* radixSort.swift */; };
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
+		CDD8F52B1F200C12005105A4 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8F52A1F200C12005105A4 /* queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CD5780411F199B2C00E2897C /* radixSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radixSort.swift; sourceTree = "<group>"; };
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
+		CDD8F52A1F200C12005105A4 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				CDAE7A111F154FAD00B8FB51 /* stack.swift */,
+				CDD8F52A1F200C12005105A4 /* queue.swift */,
 			);
 			name = "data-structures";
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */,
 				CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */,
 				CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */,
+				CDD8F52B1F200C12005105A4 /* queue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
