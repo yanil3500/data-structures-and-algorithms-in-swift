@@ -61,4 +61,11 @@ class QueueTests: XCTestCase {
         }
     }
     
+    func testEnqueue(){
+        for (elements, result) in testCasesForEnqueue {
+            testQueue = Queue(elements: elements)
+            XCTAssert(testQueue.length == result)
+        }
+    }
+    
 }
