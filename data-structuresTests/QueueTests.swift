@@ -18,6 +18,7 @@ class QueueTests: XCTestCase {
 //    
     var testQueue : Queue<Int>!
     var testCasesForDequeue : [([Int], Int)]!
+    var testCasesForEnqueue : [([Int], Int)]!
     override func setUp() {
         super.setUp()
         testQueue = Queue()
@@ -26,6 +27,12 @@ class QueueTests: XCTestCase {
             ([55, 78, 34, 10, 12, 3212, 343, 53, 893], 55),
             ([100, 3, 5, 6, 7, 2], 100),
             ([7],7)
+        ]
+        testCasesForEnqueue = [
+            ([1, 2, 5, 6, 10, 212, 34, 5, 89, 1000], 10),
+            ([55, 78, 34, 10, 12, 3212, 343, 53, 893], 9),
+            ([100, 3, 5, 6, 7, 2], 6),
+            ([7],1)
         ]
 
     }
