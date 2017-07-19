@@ -31,6 +31,15 @@ class Queue<Element>: CustomStringConvertible {
     }
 }
 
+extension Queue {
+    convenience init?(elements: [Element]){
+        self.init()
+        for i in elements {
+            enqueue(data: i)
+        }
+    }
+}
+
 extension Queue{
     func enqueue(data: Element){
         // The enqueue method adds items to our queue.
