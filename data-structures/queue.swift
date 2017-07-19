@@ -56,4 +56,10 @@ extension Queue{
             return frontVal
         }
     }
+    
+    func peek() throws -> Element? {
+        // The peek method returns the next value in queue; The peek method throws an error is attempting to peek at an empty queue.
+        guard let peekVal : Element =  self.front?.data else { throw QueueError.emptyQueue("The Queue is empty")}
+        return peekVal
+    }
 }
