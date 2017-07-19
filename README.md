@@ -1,6 +1,5 @@
 # Data Structures and Algorithms in Swift [![Build Status](https://travis-ci.org/yanil3500/data-structures-and-algorithms-in-swift.svg?branch=master)](https://travis-ci.org/yanil3500/data-structures-and-algorithms-in-swift)
 This repo contains Swift implementations of classic data structures and algorithms.
-
 **Stack**
 - **Implementation**: `stack.swift`
 - **Tests**: `StackTests.swift`
@@ -53,3 +52,7 @@ This repo contains Swift implementations of classic data structures and algorith
 -**Time Complexity**:
 - Worst Case Performance: O(n log n)
 - Best Case Performance: O(n log n)
+
+
+**Libraries Used**:
+- [Fakery](https://github.com/vadymmarkov/Fakery) - Used to generate test data. 

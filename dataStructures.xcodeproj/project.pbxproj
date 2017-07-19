@@ -23,6 +23,7 @@
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
 		CDD8F52B1F200C12005105A4 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8F52A1F200C12005105A4 /* queue.swift */; };
+		CDD8F52D1F2016ED005105A4 /* QueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8F52C1F2016ED005105A4 /* QueueTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		CDD8F52A1F200C12005105A4 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
+		CDD8F52C1F2016ED005105A4 /* QueueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				CD446C761F16A04300748162 /* BubbleSortTests.swift */,
 				CD0D11441F18278A00C801E1 /* SelectionSortTests.swift */,
 				CD3314101F1D39C2004DB867 /* MergeSortTests.swift */,
+				CDD8F52C1F2016ED005105A4 /* QueueTests.swift */,
 			);
 			path = "data-structuresTests";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 			files = (
 				CD0D11451F18278A00C801E1 /* SelectionSortTests.swift in Sources */,
 				CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */,
+				CDD8F52D1F2016ED005105A4 /* QueueTests.swift in Sources */,
 				CD3314111F1D39C2004DB867 /* MergeSortTests.swift in Sources */,
 				CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */,
 			);
