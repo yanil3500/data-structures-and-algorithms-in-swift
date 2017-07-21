@@ -20,6 +20,8 @@
 		CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */; };
 		CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C761F16A04300748162 /* BubbleSortTests.swift */; };
 		CD5780421F199B2C00E2897C /* radixSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5780411F199B2C00E2897C /* radixSort.swift */; };
+		CD80EAEF1F2195D400068FD8 /* BinarySearchTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80EAEE1F2195D400068FD8 /* BinarySearchTreeTests.swift */; };
+		CDA9EC711F219B7400CAB42D /* bst.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA9EC701F219B7400CAB42D /* bst.swift */; };
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
 		CDD8F52B1F200C12005105A4 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8F52A1F200C12005105A4 /* queue.swift */; };
@@ -58,6 +60,8 @@
 		CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingExtensionsOnArray.swift; sourceTree = "<group>"; };
 		CD446C761F16A04300748162 /* BubbleSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSortTests.swift; sourceTree = "<group>"; };
 		CD5780411F199B2C00E2897C /* radixSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radixSort.swift; sourceTree = "<group>"; };
+		CD80EAEE1F2195D400068FD8 /* BinarySearchTreeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTests.swift; sourceTree = "<group>"; };
+		CDA9EC701F219B7400CAB42D /* bst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bst.swift; sourceTree = "<group>"; };
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		CDD8F52A1F200C12005105A4 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				CD0D11441F18278A00C801E1 /* SelectionSortTests.swift */,
 				CD3314101F1D39C2004DB867 /* MergeSortTests.swift */,
 				CDD8F52C1F2016ED005105A4 /* QueueTests.swift */,
+				CD80EAEE1F2195D400068FD8 /* BinarySearchTreeTests.swift */,
 			);
 			path = "data-structuresTests";
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			children = (
 				CDAE7A111F154FAD00B8FB51 /* stack.swift */,
 				CDD8F52A1F200C12005105A4 /* queue.swift */,
+				CDA9EC701F219B7400CAB42D /* bst.swift */,
 			);
 			name = "data-structures";
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 				CD3422C11F15428000995692 /* ViewController.swift in Sources */,
 				CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */,
 				CD3422BF1F15428000995692 /* AppDelegate.swift in Sources */,
+				CDA9EC711F219B7400CAB42D /* bst.swift in Sources */,
 				CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */,
 				CDD8F52B1F200C12005105A4 /* queue.swift in Sources */,
 			);
@@ -390,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD80EAEF1F2195D400068FD8 /* BinarySearchTreeTests.swift in Sources */,
 				CD0D11451F18278A00C801E1 /* SelectionSortTests.swift in Sources */,
 				CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */,
 				CDD8F52D1F2016ED005105A4 /* QueueTests.swift in Sources */,
