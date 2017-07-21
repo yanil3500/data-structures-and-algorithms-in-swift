@@ -126,4 +126,26 @@ extension BST{
             return root!.data == data
         }
     }
+    
+    private func search(forData data: Double) -> (BSTNode?, BSTNode?)?{
+        if self.search(data: data){
+            var current : BSTNode? = self.root
+            var parent : BSTNode?
+            while current != nil {
+                if let currVal : Double = current?.data {
+                    if data < currVal {
+                        parent = current
+                        current = current?.left
+                    } else if data > currVal {
+                        parent = current
+                        current = current?.right
+                    } else {
+                        break
+                    }
+                }
+            }
+            return (parent, current)
+        }
+        return nil
+    }
 }
