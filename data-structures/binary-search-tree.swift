@@ -48,18 +48,19 @@ class BSTNode<Element>{
         temp?.left = parent
         return temp
     }
-//    private func leftRightRotation(parent: AVLNode?) -> AVLNode? {
-//        print("leftRightRotation: ")
-//        let temp : AVLNode? = parent?.left
-//        parent?.left = leftRotation(parent: temp)
-//        return rightRotation(parent: parent)
-//    }
-    
+
     private func leftRightRotation(parent: BSTNode?) -> BSTNode?{
-        // Performs a single leftRotation, and then a single rightRotation
+        // Performs a single leftRotation, and then a single rightRotation.
         let temp : BSTNode? = parent?.left
         parent?.left = leftRotation(parent: temp)
         return rightRotation(parent: parent)
+    }
+    
+    private func rightLeftRotation(parent: BSTNode?) -> BSTNode?{
+        // Performs a single rightRotation, and then a single leftRotation.
+        let temp : BSTNode? = parent?.right
+        parent?.right = rightRotation(parent: temp)
+        return leftRotation(parent: parent)
     }
     
 }
