@@ -20,6 +20,7 @@
 		CD446C731F16992500748162 /* SortingExtensionsOnArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */; };
 		CD446C771F16A04300748162 /* BubbleSortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD446C761F16A04300748162 /* BubbleSortTests.swift */; };
 		CD5780421F199B2C00E2897C /* radixSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5780411F199B2C00E2897C /* radixSort.swift */; };
+		CD80EAED1F218AAC00068FD8 /* binary-search-tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD80EAEC1F218AAC00068FD8 /* binary-search-tree.swift */; };
 		CDAE7A121F154FAD00B8FB51 /* stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A111F154FAD00B8FB51 /* stack.swift */; };
 		CDAE7A151F15563500B8FB51 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAE7A141F15563500B8FB51 /* StackTests.swift */; };
 		CDD8F52B1F200C12005105A4 /* queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD8F52A1F200C12005105A4 /* queue.swift */; };
@@ -58,6 +59,7 @@
 		CD446C721F16992500748162 /* SortingExtensionsOnArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortingExtensionsOnArray.swift; sourceTree = "<group>"; };
 		CD446C761F16A04300748162 /* BubbleSortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleSortTests.swift; sourceTree = "<group>"; };
 		CD5780411F199B2C00E2897C /* radixSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = radixSort.swift; sourceTree = "<group>"; };
+		CD80EAEC1F218AAC00068FD8 /* binary-search-tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "binary-search-tree.swift"; sourceTree = "<group>"; };
 		CDAE7A111F154FAD00B8FB51 /* stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = stack.swift; sourceTree = "<group>"; };
 		CDAE7A141F15563500B8FB51 /* StackTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		CDD8F52A1F200C12005105A4 /* queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = queue.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				CDAE7A111F154FAD00B8FB51 /* stack.swift */,
 				CDD8F52A1F200C12005105A4 /* queue.swift */,
+				CD80EAEC1F218AAC00068FD8 /* binary-search-tree.swift */,
 			);
 			name = "data-structures";
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD80EAED1F218AAC00068FD8 /* binary-search-tree.swift in Sources */,
 				CD5780421F199B2C00E2897C /* radixSort.swift in Sources */,
 				CD33140F1F1D3243004DB867 /* mergeSort.swift in Sources */,
 				CD3422C11F15428000995692 /* ViewController.swift in Sources */,
