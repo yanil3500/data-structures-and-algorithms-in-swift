@@ -15,6 +15,9 @@ class BSTNode<Element>{
     var height : Int {
         return self.getHeight()
     }
+    var heightDifference : Int {
+        return self.getHeight(root: self.left) - self.getHeight(root: self.right)
+    }
     
     init(data: Element){
         self.data = data
@@ -27,7 +30,7 @@ class BSTNode<Element>{
         if root == nil {
             return 0
         }
-        
         return 1 + max(getHeight(root: root?.left), getHeight(root: root?.right))
     }
+    
 }
