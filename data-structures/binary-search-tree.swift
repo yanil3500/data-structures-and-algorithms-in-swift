@@ -41,4 +41,12 @@ class BSTNode<Element>{
         return temp
     }
     
+    private func leftRotation(parent: BSTNode?) -> BSTNode?{
+        //Performs a left rotation
+        let temp : BSTNode? = parent?.right
+        parent?.right = temp?.left
+        temp?.left = parent
+        return temp
+    }
+    
 }
