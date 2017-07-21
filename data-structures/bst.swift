@@ -87,7 +87,7 @@ class BSTNode{
 
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
-    var nodes : Int = 0 
+    var nodes : Int = 0
 }
 
 
@@ -108,5 +108,22 @@ extension BST{
         }
         
         return root
+    }
+    
+    func search(data: Double) -> Bool {
+        return search(root: self.root, data: data)
+    }
+    
+    private func search(root: BSTNode?, data: Double) -> Bool {
+        if root == nil {
+            return false
+        }
+        if let rootVal : Double = root?.data, data < rootVal {
+            return search(root: root?.left, data: data)
+        } else if let rootVal : Double = root?.data, data > rootVal {
+            return search(root: root?.right, data: data)
+        } else {
+            return root!.data == data
+        }
     }
 }
