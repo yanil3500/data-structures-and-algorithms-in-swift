@@ -33,4 +33,12 @@ class BSTNode<Element>{
         return 1 + max(getHeight(root: root?.left), getHeight(root: root?.right))
     }
     
+    private func rightRotation(parent: BSTNode?) -> BSTNode?{
+        // Performs a right rotation
+        let temp : BSTNode? = parent?.left
+        parent?.left = temp?.right
+        temp?.right = parent
+        return temp
+    }
+    
 }
