@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class BSTNode<Element>{
+    var data : Element
+    var left : BSTNode<Element>?
+    var right : BSTNode<Element>?
+}
