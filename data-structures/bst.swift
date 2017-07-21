@@ -88,6 +88,9 @@ class BSTNode{
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
     var nodes : Int = 0
+    var isEmpty : Bool {
+        return nodes == 0
+    }
 }
 
 
