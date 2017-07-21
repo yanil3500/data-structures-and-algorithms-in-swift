@@ -85,3 +85,8 @@ class BSTNode<Element>{
     }
     
 }
+
+
+class BST<Element>{
+    
+}
