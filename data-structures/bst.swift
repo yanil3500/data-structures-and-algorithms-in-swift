@@ -164,3 +164,14 @@ extension BST{
         }
     }
 }
+
+
+
+extension BST {
+    convenience init(collection: [Double]) {
+        self.init()
+        for element in collection{
+            self.insert(data: element)
+        }
+    }
+}
