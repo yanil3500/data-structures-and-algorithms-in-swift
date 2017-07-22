@@ -10,9 +10,17 @@ import XCTest
 @testable import dataStructures
 class BinarySearchTreeTests: XCTestCase {
     var testBST : BST<Double>!
+    var testCasesForInsert : [([Int], Int)]!
     override func setUp() {
         super.setUp()
         testBST = BST<Double>()
+        testCasesForInsert = [
+            (),
+            (),
+            (),
+            (),
+            ()
+        ]
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -22,7 +30,7 @@ class BinarySearchTreeTests: XCTestCase {
         testBST = nil
     }
     
-    func testExample() {
+    func testInsertWorks() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
