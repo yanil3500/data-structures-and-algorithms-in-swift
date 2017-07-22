@@ -167,6 +167,14 @@ extension BST{
     func preorderTraversal(operation: (Any)->() ){
         preorderTraversal(root: self.root, operation: operation)
     }
+    
+    private func preorderTraversal(root: BSTNode?, operation: (Any)->()){
+        if let rootVal = root?.data, root != nil {
+            operation(rootVal)
+            preorderTraversal(root: root?.left, operation: operation)
+            preorderTraversal(root: root?.right, operation: operation)
+        }
+    }
 }
 
 
