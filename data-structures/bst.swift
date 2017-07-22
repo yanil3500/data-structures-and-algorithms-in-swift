@@ -87,16 +87,16 @@ class BSTNode{
 
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
-    var nodes : Int = 0
+    var length : Int = 0
     var isEmpty : Bool {
-        return nodes == 0
+        return length == 0
     }
 }
 
 
 extension BST{
     func insert(data: Double){
-        self.nodes += 1
+        self.length += 1
         self.root = insert(root: self.root, data: data)
     }
     
@@ -150,5 +150,53 @@ extension BST{
             return (parent, current)
         }
         return nil
+    }
+    
+    func inorderTraversal(operation: (Any)->() ){
+        inorderTraversal(root: self.root, operation: operation)
+    }
+    
+    private func inorderTraversal(root: BSTNode?, operation: (Any)->()){
+        if let rootVal = root?.data, root != nil {
+            inorderTraversal(root: root?.left, operation: operation)
+            operation(rootVal)
+            inorderTraversal(root: root?.right, operation: operation)
+        }
+    }
+    
+    func preorderTraversal(operation: (Any)->() ){
+        preorderTraversal(root: self.root, operation: operation)
+    }
+    
+    private func preorderTraversal(root: BSTNode?, operation: (Any)->()){
+        if let rootVal = root?.data, root != nil {
+            operation(rootVal)
+            preorderTraversal(root: root?.left, operation: operation)
+            preorderTraversal(root: root?.right, operation: operation)
+        }
+    }
+    
+    func postorderTraversal(operation: (Any)->() ){
+        preorderTraversal(root: self.root, operation: operation)
+    }
+    
+    private func postorderTraversal(root: BSTNode?, operation: (Any)->()){
+        if let rootVal = root?.data, root != nil {
+            postorderTraversal(root: root?.left, operation: operation)
+            postorderTraversal(root: root?.right, operation: operation)
+            operation(rootVal)
+        }
+    }
+    
+}
+
+
+
+extension BST {
+    convenience init(collection: [Double]) {
+        self.init()
+        for element in collection{
+            self.insert(data: element)
+        }
     }
 }
