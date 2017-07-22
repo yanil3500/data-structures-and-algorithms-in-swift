@@ -180,6 +180,14 @@ extension BST{
         preorderTraversal(root: self.root, operation: operation)
     }
     
+    private func postorderTraversal(root: BSTNode?, operation: (Any)->()){
+        if let rootVal = root?.data, root != nil {
+            postorderTraversal(root: root?.left, operation: operation)
+            postorderTraversal(root: root?.right, operation: operation)
+            operation(rootVal)
+        }
+    }
+    
 }
 
 
