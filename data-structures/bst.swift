@@ -163,6 +163,10 @@ extension BST{
             inorderTraversal(root: root?.right, operation: operation)
         }
     }
+    
+    func preorderTraversal(operation: (Any)->() ){
+        preorderTraversal(root: self.root, operation: operation)
+    }
 }
 
 
