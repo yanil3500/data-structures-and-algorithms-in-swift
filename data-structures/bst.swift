@@ -152,8 +152,8 @@ extension BST{
         return nil
     }
     
-    func inorderTraversal(operation: (BSTNode?)->() ){
-        
+    func inorderTraversal(operation: (Any)->() ){
+        inorderTraversal(root: self.root, operation: operation)
     }
     
     private func inorderTraversal(root: BSTNode?, operation: (Any)->()){
