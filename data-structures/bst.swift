@@ -87,16 +87,16 @@ class BSTNode{
 
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
-    var nodes : Int = 0
+    var length : Int = 0
     var isEmpty : Bool {
-        return nodes == 0
+        return length == 0
     }
 }
 
 
 extension BST{
     func insert(data: Double){
-        self.nodes += 1
+        self.length += 1
         self.root = insert(root: self.root, data: data)
     }
     

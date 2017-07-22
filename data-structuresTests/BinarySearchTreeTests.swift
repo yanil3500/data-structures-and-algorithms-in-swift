@@ -31,9 +31,10 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     func testInsert() {
-        
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        for (elements, result) in testCasesForInsert {
+            testBST = BST(collection: elements)
+            XCTAssert(testBST.length == result)
+        }
     }
     
     func testPerformanceExample() {
