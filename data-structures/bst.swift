@@ -207,13 +207,22 @@ extension BST {
     //Remove method and its helpers.
     func remove(data: Double) {
         guard let (nodeToRemove, parent) = search(forData: data) else { return }
+        //Checks if the nodeToRemove has children, if it doesn't the helper method 
+        //will remove the node
         if nodeToRemove?.left == nil && nodeToRemove?.right == nil {
             remove(nodeWithZeroChildren: nodeToRemove, parent: parent)
             return
         }
+        
+        if nodeToRemove?.left != nil && nodeToRemove?.right != nil {
+            remove(nodeWithBothChildren: BSTNode?)
+        }
+        
+        
     }
     
     fileprivate func remove(nodeWithZeroChildren node: BSTNode?, parent: BSTNode?){
+        //The helper is responsible for removing a node if it has 0 children.
         let parent = parent
         if parent?.left === node {
             parent?.left = nil
