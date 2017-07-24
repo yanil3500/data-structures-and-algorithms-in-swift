@@ -221,12 +221,59 @@ extension BST {
         
     }
     fileprivate func remove(nodeWithBothChildren node: BSTNode?){
+        var node = node
         if node === self.root {
             //Check if left subtree has right subtree 
             if node?.left?.right == nil {
-                guard let val : Double = node?.left?.data else { return }
+                guard let data : Double = node?.left?.data else { return }
+                node?.data = data
+                node?.left = node?.left?.left
+                node = node?.balance(temp: node)
+                return
             }
+            //Check if right subtree has left subtree
+            if node?.right?.left == nil {
+                guard let data : Double = node?.right?.data else { return }
+                node?.data = data
+                node?.right = node?.right?.right
+                node = node?.balance(temp: node)
+                return
+            }
+            
+            var maxInLeft : BSTNode? = node?.left
+            var shadowTheMaxInLeft : BSTNode?
+            while maxInLeft?.right != nil {
+                shadowTheMaxInLeft = maxInLeft
+                maxInLeft = maxInLeft?.right
+            }
+            //Overwrite the value node from maxInLeft
+            node?.data = maxInLeft!.data
+            node = node?.balance(temp: node)
+            shadowTheMaxInLeft?.right = nil
+            return
         }
+        
+        //Check if left subtree has right subtree
+        if node?.left?.right == nil {
+            guard let data : Double = node?.left?.data else { return }
+            node?.data = data
+            node?.left = node?.left?.left
+            node = node?.balance(temp: node)
+            return
+        }
+        //Check if right subtree has left subtree
+        if node?.right?.left == nil {
+            guard let data : Double = node?.right?.data else { return }
+            node?.data = data
+            node?.right = node?.right?.right
+            node = node?.balance(temp: node)
+            return
+        }
+        //Replace the node to remove with the min value in the right subtree
+        var replacement : BSTNode? = node?.right
+        var shadowReplacement : BSTNode?
+        
+        
         
     }
     
