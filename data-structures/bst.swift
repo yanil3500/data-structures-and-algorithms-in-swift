@@ -216,7 +216,10 @@ extension BST {
         
         if nodeToRemove?.left != nil && nodeToRemove?.right != nil {
             remove(nodeWithBothChildren: nodeToRemove)
+            return
         }
+        
+        remove(nodeWithOneChild: nodeToRemove, parent: parent)
         
         
     }
@@ -246,7 +249,7 @@ extension BST {
                 shadowTheMaxInLeft = maxInLeft
                 maxInLeft = maxInLeft?.right
             }
-            //Overwrite the value node from maxInLeft
+            //Overwrite the data in node with data from maxInLeft
             node?.data = maxInLeft!.data
             node = node?.balance(temp: node)
             shadowTheMaxInLeft?.right = nil
@@ -272,6 +275,18 @@ extension BST {
         //Replace the node to remove with the min value in the right subtree
         var replacement : BSTNode? = node?.right
         var shadowReplacement : BSTNode?
+        
+        while replacement?.left != nil {
+            shadowReplacement = replacement
+            replacement = replacement?.left
+        }
+        
+        //Overwrite the data in node from data in replacement
+        node?.data = replacement!.data
+        
+        //remove the duplicate
+        shadowReplacement?.left = nil
+        node = node?.balance(temp: node)
         
         
         
