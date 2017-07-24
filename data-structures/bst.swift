@@ -200,3 +200,9 @@ extension BST {
         }
     }
 }
+
+
+
+extension BST {
+    //Remove method and its helpers.
+}
