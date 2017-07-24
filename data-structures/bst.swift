@@ -215,9 +215,18 @@ extension BST {
         }
         
         if nodeToRemove?.left != nil && nodeToRemove?.right != nil {
-            remove(nodeWithBothChildren: BSTNode?)
+            remove(nodeWithBothChildren: nodeToRemove)
         }
         
+        
+    }
+    fileprivate func remove(nodeWithBothChildren node: BSTNode?){
+        if node === self.root {
+            //Check if left subtree has right subtree 
+            if node?.left?.right == nil {
+                guard let val : Double = node?.left?.data else { return }
+            }
+        }
         
     }
     
