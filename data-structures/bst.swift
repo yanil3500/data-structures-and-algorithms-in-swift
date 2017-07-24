@@ -100,7 +100,7 @@ extension BST{
         self.root = insert(root: self.root, data: data)
     }
     
-    private func insert(root: BSTNode?, data: Double) -> BSTNode?{
+    fileprivate func insert(root: BSTNode?, data: Double) -> BSTNode?{
         if root == nil {
             return BSTNode(data: data)
         }
@@ -117,7 +117,7 @@ extension BST{
         return search(root: self.root, data: data)
     }
     
-    private func search(root: BSTNode?, data: Double) -> Bool {
+    fileprivate func search(root: BSTNode?, data: Double) -> Bool {
         if root == nil {
             return false
         }
@@ -130,7 +130,7 @@ extension BST{
         }
     }
     
-    private func search(forData data: Double) -> (BSTNode?, BSTNode?)?{
+    fileprivate func search(forData data: Double) -> (BSTNode?, BSTNode?)?{
         if self.search(data: data){
             var current : BSTNode? = self.root
             var parent : BSTNode?
@@ -156,7 +156,7 @@ extension BST{
         inorderTraversal(root: self.root, operation: operation)
     }
     
-    private func inorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func inorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             inorderTraversal(root: root?.left, operation: operation)
             operation(rootVal)
@@ -168,7 +168,7 @@ extension BST{
         preorderTraversal(root: self.root, operation: operation)
     }
     
-    private func preorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func preorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             operation(rootVal)
             preorderTraversal(root: root?.left, operation: operation)
@@ -180,7 +180,7 @@ extension BST{
         preorderTraversal(root: self.root, operation: operation)
     }
     
-    private func postorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func postorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             postorderTraversal(root: root?.left, operation: operation)
             postorderTraversal(root: root?.right, operation: operation)
@@ -205,4 +205,22 @@ extension BST {
 
 extension BST {
     //Remove method and its helpers.
+    func remove(data: Double) {
+        guard let (nodeToRemove, parent) = search(forData: data) else { return }
+        if nodeToRemove?.left == nil && nodeToRemove?.right == nil {
+            remove(nodeWithZeroChildren: nodeToRemove, parent: parent)
+            return
+        }
+    }
+    
+    fileprivate func remove(nodeWithZeroChildren node: BSTNode?, parent: BSTNode?){
+        let parent = parent
+        if parent?.left === node {
+            parent?.left = nil
+        } else {
+            parent?.right = nil
+        }
+        
+        self.length -= 1
+    }
 }
