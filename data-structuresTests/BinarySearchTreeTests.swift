@@ -66,12 +66,14 @@ class BinarySearchTreeTests: XCTestCase {
         }
     }
     
-    func testDelete(){
+    func testRemove(){
+        //Assert
         for (elements, removeVal, lengthAfterRemoval) in testCasesForRemove {
             testBST = BST(collection: elements)
             testBST.remove(data: removeVal)
             XCTAssertEqual(testBST.length, lengthAfterRemoval)
         }
+        testBST.inorderTraversal()
     }
     
 

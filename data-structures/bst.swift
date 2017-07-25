@@ -13,7 +13,7 @@ class BSTNode{
     var left : BSTNode?
     var right : BSTNode?
     var height : Int {
-        return self.getHeight()
+        return getHeight()
     }
     var heightDifference : Int {
         return self.getHeight(root: self.left) - self.getHeight(root: self.right)
@@ -27,6 +27,7 @@ class BSTNode{
         return getHeight(root: self)
     }
     private func getHeight(root: BSTNode?) -> Int {
+        print("root: \(root?.data)")
         if root == nil {
             return 0
         }
@@ -35,6 +36,7 @@ class BSTNode{
     
     private func rightRotation(_ parent: BSTNode?) -> BSTNode?{
         // Performs a right rotation
+        print("rightRotation()")
         guard let temp : BSTNode = parent?.left else { return nil }
         parent?.left = temp.right
         temp.right = parent
@@ -43,6 +45,7 @@ class BSTNode{
     
     private func leftRotation(_ parent: BSTNode?) -> BSTNode?{
         //Performs a left rotation
+        print("leftRotation()")
         guard let temp : BSTNode = parent?.right else { return nil }
         parent?.right = temp.left
         temp.left = parent
@@ -51,6 +54,7 @@ class BSTNode{
     
     private func leftRightRotation(_ parent: BSTNode?) -> BSTNode?{
         // Performs a single leftRotation, and then a single rightRotation.
+        print("leftRightRotation()")
         guard let temp : BSTNode = parent?.left else { return nil }
         parent?.left = leftRotation(temp)
         return rightRotation(parent)
@@ -58,6 +62,7 @@ class BSTNode{
     
     private func rightLeftRotation(_ parent: BSTNode?) -> BSTNode?{
         // Performs a single rightRotation, and then a single leftRotation.
+        print("rightLeftRotation()")
         guard let temp : BSTNode = parent?.right else { return nil }
         parent?.right = rightRotation(temp)
         return leftRotation(parent)
@@ -65,6 +70,7 @@ class BSTNode{
     
     func balance(temp: BSTNode?) -> BSTNode?{
         guard let balanceFactor : Int = temp?.heightDifference else { return nil }
+        print("The balance factor: \(balanceFactor)")
         var newTemp : BSTNode? = temp
         if balanceFactor > 1 {
             if let val : Int = temp?.left?.heightDifference, val > 0 {
@@ -87,7 +93,11 @@ class BSTNode{
 
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
-    var length : Int = 0
+    var length : Int = 0 {
+        didSet {
+            print(oldValue)
+        }
+    }
     var isEmpty : Bool {
         return length == 0
     }
@@ -152,39 +162,39 @@ extension BST{
         return nil
     }
     
-    func inorderTraversal(operation: (Any)->() ){
-        inorderTraversal(root: self.root, operation: operation)
+    func inorderTraversal(){
+        inorderTraversal(root: self.root)
     }
     
-    fileprivate func inorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func inorderTraversal(root: BSTNode?){
         if let rootVal = root?.data, root != nil {
-            inorderTraversal(root: root?.left, operation: operation)
-            operation(rootVal)
-            inorderTraversal(root: root?.right, operation: operation)
+            inorderTraversal(root: root?.left)
+            print(rootVal)
+            inorderTraversal(root: root?.right)
         }
     }
     
-    func preorderTraversal(operation: (Any)->() ){
-        preorderTraversal(root: self.root, operation: operation)
+    func preorderTraversal(){
+        preorderTraversal(root: self.root)
     }
     
-    fileprivate func preorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func preorderTraversal(root: BSTNode?){
         if let rootVal = root?.data, root != nil {
-            operation(rootVal)
-            preorderTraversal(root: root?.left, operation: operation)
-            preorderTraversal(root: root?.right, operation: operation)
+            print(rootVal)
+            preorderTraversal(root: root?.left)
+            preorderTraversal(root: root?.right)
         }
     }
     
-    func postorderTraversal(operation: (Any)->() ){
-        preorderTraversal(root: self.root, operation: operation)
+    func postorderTraversal(){
+        postorderTraversal(root: self.root)
     }
     
-    fileprivate func postorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func postorderTraversal(root: BSTNode?){
         if let rootVal = root?.data, root != nil {
-            postorderTraversal(root: root?.left, operation: operation)
-            postorderTraversal(root: root?.right, operation: operation)
-            operation(rootVal)
+            postorderTraversal(root: root?.left)
+            postorderTraversal(root: root?.right)
+            print(rootVal)
         }
     }
     
@@ -206,21 +216,23 @@ extension BST {
 extension BST {
     //Remove method and its helpers.
     func remove(data: Double) {
-        guard let (nodeToRemove, parent) = search(forData: data) else { return }
+        guard var (nodeToRemove, parent) = search(forData: data) else { return }
         //Checks if the nodeToRemove has children, if it doesn't the helper method 
         //will remove the node
         if nodeToRemove?.left == nil && nodeToRemove?.right == nil {
             remove(nodeWithZeroChildren: nodeToRemove, parent: parent)
+            self.length -= 1
             return
         }
         
         if nodeToRemove?.left != nil && nodeToRemove?.right != nil {
             remove(nodeWithBothChildren: nodeToRemove)
+            self.length -= 1
             return
         }
         
         remove(nodeWithOneChild: nodeToRemove, parent: parent)
-        
+        self.length -= 1
         
     }
     
@@ -237,11 +249,9 @@ extension BST {
                 
                 if parent?.left === node {
                     parent?.left = node?.left
-                    parent = parent?.balance(temp: parent)
                     return
                 } else {
                     parent?.right = node?.right
-                    parent = parent?.balance(temp: parent)
                     return
                 }
             }
@@ -256,11 +266,9 @@ extension BST {
                 
                 if parent?.left === node {
                     parent?.left = node?.right
-                    parent = parent?.balance(temp: parent)
                     return
                 } else {
                     parent?.right = node?.right
-                    parent = parent?.balance(temp: parent)
                     return
                 }
             }
@@ -274,7 +282,6 @@ extension BST {
                 guard let data : Double = node?.left?.data else { return }
                 node?.data = data
                 node?.left = node?.left?.left
-                node = node?.balance(temp: node)
                 return
             }
             //Check if right subtree has left subtree
@@ -282,7 +289,6 @@ extension BST {
                 guard let data : Double = node?.right?.data else { return }
                 node?.data = data
                 node?.right = node?.right?.right
-                node = node?.balance(temp: node)
                 return
             }
             
@@ -294,7 +300,6 @@ extension BST {
             }
             //Overwrite the data in node with data from maxInLeft
             node?.data = maxInLeft!.data
-            node = node?.balance(temp: node)
             shadowTheMaxInLeft?.right = nil
             return
         }
@@ -304,7 +309,6 @@ extension BST {
             guard let data : Double = node?.left?.data else { return }
             node?.data = data
             node?.left = node?.left?.left
-            node = node?.balance(temp: node)
             return
         }
         //Check if right subtree has left subtree
@@ -312,7 +316,6 @@ extension BST {
             guard let data : Double = node?.right?.data else { return }
             node?.data = data
             node?.right = node?.right?.right
-            node = node?.balance(temp: node)
             return
         }
         //Replace the node to remove with the min value in the right subtree
@@ -329,7 +332,6 @@ extension BST {
         
         //remove the duplicate
         shadowReplacement?.left = nil
-        node = node?.balance(temp: node)
         
         
         
@@ -344,6 +346,5 @@ extension BST {
             parent?.right = nil
         }
         
-        self.length -= 1
     }
 }
