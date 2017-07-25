@@ -85,7 +85,7 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     func testRemove(){
-        //Assert
+        //Asserts that removal of removal has been successful by checking the size of the BST after removal.
         for (elements, removeVal, lengthAfterRemoval) in testCasesForRemove {
             testBST = BST(collection: elements)
             testBST.remove(data: removeVal)
