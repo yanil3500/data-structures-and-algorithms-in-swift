@@ -11,7 +11,7 @@ import XCTest
 class BinarySearchTreeTests: XCTestCase {
     var testBST : BST<Double>!
     var testCasesForInsert : [([Double], Int)]!
-    var testCasesForDelete : [([Double], Double, Int)]!
+    var testCasesForRemove : [([Double], Double, Int)]!
     override func setUp() {
         super.setUp()
         testBST = BST<Double>()
@@ -23,7 +23,7 @@ class BinarySearchTreeTests: XCTestCase {
             ([56, 23.32, 23.1, 23.3455, 1294.13, -1],6)
         ]
         
-        testCasesForDelete = [
+        testCasesForRemove = [
             ([1, 6, 7,3, 1000, -1, -10, 4], -10, 7),
             ([45, 67, 1, 2, 3, 4, 6, -9, 1, 21, -123, 234, 11212, -19], 11212, 13),
             ([7, -10, 35.6], 7, 2),
@@ -67,7 +67,7 @@ class BinarySearchTreeTests: XCTestCase {
     }
     
     func testDelete(){
-        for (elements, removeVal, lengthAfterRemoval) in testCasesForDelete {
+        for (elements, removeVal, lengthAfterRemoval) in testCasesForRemove {
             testBST = BST(collection: elements)
             testBST.remove(data: removeVal)
             XCTAssertEqual(testBST.length, lengthAfterRemoval)
