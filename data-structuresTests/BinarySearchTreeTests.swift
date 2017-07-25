@@ -12,6 +12,7 @@ class BinarySearchTreeTests: XCTestCase {
     var testBST : BST<Double>!
     var testCasesForInsert : [([Double], Int)]!
     var testCasesForRemove : [([Double], Double, Int)]!
+    var testCasesForSearchReturnFalse : [([Double], Int)]!
     override func setUp() {
         super.setUp()
         testBST = BST<Double>()
@@ -29,6 +30,14 @@ class BinarySearchTreeTests: XCTestCase {
             ([7, -10, 35.6], 7, 2),
             ([1.2], 1.2, 0),
             ([56, 23.32, 23.1, 23.3455, 1294.13, -1], 23.3455, 5)
+        ]
+        
+        testCasesForSearchReturnFalse = [
+            ([1, 6, 7,3, 1000, -1, -10, 4], -10),
+            ([45, 67, 1, 2, 3, 4, 6, -9, 1, 21, -123, 234, 11212, -19], 11212),
+            ([7, -10, 35.6], 7),
+            ([1.2], 1.2),
+            ([56, 23.32, 23.1, 23.3455, 1294.13, -1], 23.3455)
         ]
         
         
@@ -64,6 +73,15 @@ class BinarySearchTreeTests: XCTestCase {
             //Asserts the search method returns false when searching for element not contained in the BST
             XCTAssertFalse(testBST.search(data: 80000.00))
         }
+    }
+    
+    func testSearchReturnFalse(){
+        //Asserts that search method returns false for elements not in BST
+        for (elements, searchVal) in testCasesForSearchReturnFalse {
+            testBST = BST(collection: elements)
+            XCTAssertFalse(testBST.search(data: searchVal))
+        }
+        
     }
     
     func testRemove(){
