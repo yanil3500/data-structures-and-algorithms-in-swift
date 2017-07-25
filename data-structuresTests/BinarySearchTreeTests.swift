@@ -45,6 +45,13 @@ class BinarySearchTreeTests: XCTestCase {
         XCTAssertFalse(testBST.isEmpty)
     }
     
+    func testSearch(){
+        for (elements, searchVal) in [([1.0, 6.8, 7.11, 3.0, 1000.0, -1.9, -10.11, 4.3], 1000.0)]{
+            //Asserts that the searchVal is contained in the BST
+            testBST = BST(collection: elements)
+            XCTAssert(testBST.search(data: searchVal))
+        }
+    }
     
     
     func testPerformanceExample() {
