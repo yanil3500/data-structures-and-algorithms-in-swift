@@ -50,6 +50,8 @@ class BinarySearchTreeTests: XCTestCase {
             //Asserts that the searchVal is contained in the BST
             testBST = BST(collection: elements)
             XCTAssert(testBST.search(data: searchVal))
+            //Asserts the search method returns false when searching for element not contained in the BST
+            XCTAssertFalse(testBST.search(data: 80000.00))
         }
     }
     
