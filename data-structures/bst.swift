@@ -27,7 +27,6 @@ class BSTNode{
         return getHeight(root: self)
     }
     private func getHeight(root: BSTNode?) -> Int {
-        print("root: \(root?.data)")
         if root == nil {
             return 0
         }
@@ -93,11 +92,7 @@ class BSTNode{
 
 class BST<Element: Comparable>{
     fileprivate var root : BSTNode?
-    var length : Int = 0 {
-        didSet {
-            print(oldValue)
-        }
-    }
+    var length : Int = 0
     var isEmpty : Bool {
         return length == 0
     }
@@ -237,7 +232,6 @@ extension BST {
     }
     
     fileprivate func remove(nodeWithOneChild node: BSTNode?, parent: BSTNode?){
-        var parent = parent
         if node?.right == nil {
             //If true, the node has a left child
             if node?.left != nil {
