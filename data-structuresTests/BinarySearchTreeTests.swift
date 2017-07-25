@@ -37,6 +37,16 @@ class BinarySearchTreeTests: XCTestCase {
         }
     }
     
+    func testIsEmpty(){
+        //Assert that isEmpty will return true
+        XCTAssertTrue(testBST.isEmpty)
+        testBST.insert(data: 8.9)
+        //Assert that isEmpty will return false as a result of having inserted a single element.
+        XCTAssertFalse(testBST.isEmpty)
+    }
+    
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
