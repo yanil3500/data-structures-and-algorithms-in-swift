@@ -223,6 +223,49 @@ extension BST {
         
         
     }
+    
+    fileprivate func remove(nodeWithOneChild node: BSTNode?, parent: BSTNode?){
+        var parent = parent
+        if node?.right == nil {
+            //If true, the node has a left child
+            if node?.left != nil {
+                if node === self.root {
+                    self.root = self.root?.left
+                    self.root =  self.root?.balance(temp: self.root)
+                    return
+                }
+                
+                if parent?.left === node {
+                    parent?.left = node?.left
+                    parent = parent?.balance(temp: parent)
+                    return
+                } else {
+                    parent?.right = node?.right
+                    parent = parent?.balance(temp: parent)
+                    return
+                }
+            }
+        } else {
+            //the node has a right child
+            if node?.right != nil {
+                if node === self.root {
+                    self.root = self.root?.right
+                    self.root =  self.root?.balance(temp: self.root)
+                    return
+                }
+                
+                if parent?.left === node {
+                    parent?.left = node?.right
+                    parent = parent?.balance(temp: parent)
+                    return
+                } else {
+                    parent?.right = node?.right
+                    parent = parent?.balance(temp: parent)
+                    return
+                }
+            }
+        }
+    }
     fileprivate func remove(nodeWithBothChildren node: BSTNode?){
         var node = node
         if node === self.root {
