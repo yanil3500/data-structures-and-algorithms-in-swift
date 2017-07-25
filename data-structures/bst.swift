@@ -100,7 +100,7 @@ extension BST{
         self.root = insert(root: self.root, data: data)
     }
     
-    private func insert(root: BSTNode?, data: Double) -> BSTNode?{
+    fileprivate func insert(root: BSTNode?, data: Double) -> BSTNode?{
         if root == nil {
             return BSTNode(data: data)
         }
@@ -117,7 +117,7 @@ extension BST{
         return search(root: self.root, data: data)
     }
     
-    private func search(root: BSTNode?, data: Double) -> Bool {
+    fileprivate func search(root: BSTNode?, data: Double) -> Bool {
         if root == nil {
             return false
         }
@@ -130,7 +130,7 @@ extension BST{
         }
     }
     
-    private func search(forData data: Double) -> (BSTNode?, BSTNode?)?{
+    fileprivate func search(forData data: Double) -> (BSTNode?, BSTNode?)?{
         if self.search(data: data){
             var current : BSTNode? = self.root
             var parent : BSTNode?
@@ -156,7 +156,7 @@ extension BST{
         inorderTraversal(root: self.root, operation: operation)
     }
     
-    private func inorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func inorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             inorderTraversal(root: root?.left, operation: operation)
             operation(rootVal)
@@ -168,7 +168,7 @@ extension BST{
         preorderTraversal(root: self.root, operation: operation)
     }
     
-    private func preorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func preorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             operation(rootVal)
             preorderTraversal(root: root?.left, operation: operation)
@@ -180,7 +180,7 @@ extension BST{
         preorderTraversal(root: self.root, operation: operation)
     }
     
-    private func postorderTraversal(root: BSTNode?, operation: (Any)->()){
+    fileprivate func postorderTraversal(root: BSTNode?, operation: (Any)->()){
         if let rootVal = root?.data, root != nil {
             postorderTraversal(root: root?.left, operation: operation)
             postorderTraversal(root: root?.right, operation: operation)
@@ -198,5 +198,109 @@ extension BST {
         for element in collection{
             self.insert(data: element)
         }
+    }
+}
+
+
+
+extension BST {
+    //Remove method and its helpers.
+    func remove(data: Double) {
+        guard let (nodeToRemove, parent) = search(forData: data) else { return }
+        //Checks if the nodeToRemove has children, if it doesn't the helper method 
+        //will remove the node
+        if nodeToRemove?.left == nil && nodeToRemove?.right == nil {
+            remove(nodeWithZeroChildren: nodeToRemove, parent: parent)
+            return
+        }
+        
+        if nodeToRemove?.left != nil && nodeToRemove?.right != nil {
+            remove(nodeWithBothChildren: nodeToRemove)
+            return
+        }
+        
+        remove(nodeWithOneChild: nodeToRemove, parent: parent)
+        
+        
+    }
+    fileprivate func remove(nodeWithBothChildren node: BSTNode?){
+        var node = node
+        if node === self.root {
+            //Check if left subtree has right subtree 
+            if node?.left?.right == nil {
+                guard let data : Double = node?.left?.data else { return }
+                node?.data = data
+                node?.left = node?.left?.left
+                node = node?.balance(temp: node)
+                return
+            }
+            //Check if right subtree has left subtree
+            if node?.right?.left == nil {
+                guard let data : Double = node?.right?.data else { return }
+                node?.data = data
+                node?.right = node?.right?.right
+                node = node?.balance(temp: node)
+                return
+            }
+            
+            var maxInLeft : BSTNode? = node?.left
+            var shadowTheMaxInLeft : BSTNode?
+            while maxInLeft?.right != nil {
+                shadowTheMaxInLeft = maxInLeft
+                maxInLeft = maxInLeft?.right
+            }
+            //Overwrite the data in node with data from maxInLeft
+            node?.data = maxInLeft!.data
+            node = node?.balance(temp: node)
+            shadowTheMaxInLeft?.right = nil
+            return
+        }
+        
+        //Check if left subtree has right subtree
+        if node?.left?.right == nil {
+            guard let data : Double = node?.left?.data else { return }
+            node?.data = data
+            node?.left = node?.left?.left
+            node = node?.balance(temp: node)
+            return
+        }
+        //Check if right subtree has left subtree
+        if node?.right?.left == nil {
+            guard let data : Double = node?.right?.data else { return }
+            node?.data = data
+            node?.right = node?.right?.right
+            node = node?.balance(temp: node)
+            return
+        }
+        //Replace the node to remove with the min value in the right subtree
+        var replacement : BSTNode? = node?.right
+        var shadowReplacement : BSTNode?
+        
+        while replacement?.left != nil {
+            shadowReplacement = replacement
+            replacement = replacement?.left
+        }
+        
+        //Overwrite the data in node from data in replacement
+        node?.data = replacement!.data
+        
+        //remove the duplicate
+        shadowReplacement?.left = nil
+        node = node?.balance(temp: node)
+        
+        
+        
+    }
+    
+    fileprivate func remove(nodeWithZeroChildren node: BSTNode?, parent: BSTNode?){
+        //The helper is responsible for removing a node if it has 0 children.
+        let parent = parent
+        if parent?.left === node {
+            parent?.left = nil
+        } else {
+            parent?.right = nil
+        }
+        
+        self.length -= 1
     }
 }
