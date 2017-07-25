@@ -12,7 +12,7 @@ class BinarySearchTreeTests: XCTestCase {
     var testBST : BST<Double>!
     var testCasesForInsert : [([Double], Int)]!
     var testCasesForRemove : [([Double], Double, Int)]!
-    var testCasesForSearchReturnFalse : [([Double], Int)]!
+    var testCasesForSearchReturnFalse : [([Double], Double)]!
     override func setUp() {
         super.setUp()
         testBST = BST<Double>()
@@ -33,11 +33,11 @@ class BinarySearchTreeTests: XCTestCase {
         ]
         
         testCasesForSearchReturnFalse = [
-            ([1, 6, 7,3, 1000, -1, -10, 4], -10),
-            ([45, 67, 1, 2, 3, 4, 6, -9, 1, 21, -123, 234, 11212, -19], 11212),
-            ([7, -10, 35.6], 7),
-            ([1.2], 1.2),
-            ([56, 23.32, 23.1, 23.3455, 1294.13, -1], 23.3455)
+            ([1, 6, 7,3, 1000, -1, -10, 4], 23425),
+            ([45, 67, 1, 2, 3, 4, 6, -9, 1, 21, -123, 234, 11212, -19], 789),
+            ([7, -10, 35.6], 1231),
+            ([1.2], 1.23),
+            ([56, 23.32, 23.1, 23.3455, 1294.13, -1], 23.345567)
         ]
         
         
