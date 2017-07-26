@@ -50,3 +50,18 @@ extension Graph {
     }
 }
 
+
+extension Graph {
+    fileprivate func addVertex(data: Element) -> Vertex<Element>{
+        //Create vertex based on the data that is passed in
+        let vertex : Vertex<Element> = Vertex(data: data)
+        //Check to see if vertex exists, if it doesn't, create an empty array of edges and return the vertex
+        if adjacencyDict[vertex] == nil {
+           adjacencyDict[vertex] = []
+        }
+        return vertex
+    }
+    
+    
+}
+
