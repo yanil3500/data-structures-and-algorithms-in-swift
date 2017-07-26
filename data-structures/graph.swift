@@ -22,3 +22,14 @@ class Vertex<Element: Hashable>{
         self.data = data
     }
 }
+
+
+extension Vertex: Hashable {
+    var hashValue : Int {
+        return "\(data)".hashValue
+    }
+    
+    final class func ==(lhs: Vertex, rhs: Vertex) -> Bool {
+        return lhs.data == rhs.data
+    }
+}
