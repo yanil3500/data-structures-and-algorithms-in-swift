@@ -15,3 +15,10 @@ enum GraphError: Error {
     case EdgeDoesNotExist(String)
     case VertexDoesNotExist(String)
 }
+
+class Vertex<Element: Hashable>{
+    var data : Element
+    init(data: Element) {
+        self.data = data
+    }
+}
