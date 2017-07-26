@@ -23,13 +23,18 @@ class Vertex<Element: Hashable>{
     }
 }
 
-
 extension Vertex: Hashable {
     var hashValue : Int {
         return "\(data)".hashValue
     }
-    
     final class func ==(lhs: Vertex, rhs: Vertex) -> Bool {
         return lhs.data == rhs.data
     }
 }
+
+extension Vertex: CustomStringConvertible {
+    var description: String {
+        return "\(data)"
+    }
+}
+
