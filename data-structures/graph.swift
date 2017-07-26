@@ -44,3 +44,9 @@ class Graph<Element: Hashable>{
     fileprivate var adjacencyDict : [Vertex<Element>: arrayOfVertexAndWeight] = [:]
 }
 
+extension Graph {
+    var isEmpty : Bool {
+        return adjacencyDict.count == 0
+    }
+}
+
