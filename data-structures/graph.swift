@@ -38,3 +38,9 @@ extension Vertex: CustomStringConvertible {
     }
 }
 
+
+class Graph<Element: Hashable>{
+    typealias arrayOfVertexAndWeight = Array<(vertex: Vertex<Element>, weight: Double)>
+    fileprivate var adjacencyDict : [Vertex<Element>: arrayOfVertexAndWeight] = [:]
+}
+
