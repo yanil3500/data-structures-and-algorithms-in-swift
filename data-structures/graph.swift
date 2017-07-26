@@ -62,6 +62,18 @@ extension Graph {
         return vertex
     }
     
-    
+    func addEdge(from source: Element, to destination: Element, weight: Double) throws {
+        //Adds vertices to adjacency list
+        let sourceV : Vertex<Element> = addVertex(data: source)
+        let destinationV : Vertex<Element> = addVertex(data: destination)
+        guard let values : arrayOfVertexAndWeight = adjacencyDict[sourceV] else { return }
+        for (v, w) in values {
+            if v == destinationV && w == weight {
+                //If an edge exists between source and destination vertices, no need to add edge and return
+                throw GraphError.EdgeAlreadyExists("Edge already exists.")
+            }
+        }
+        adjacencyDict[sourceV]?.append((vertex: destinationV, weight: weight))
+    }
 }
 
