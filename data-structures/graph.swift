@@ -94,5 +94,14 @@ extension Graph {
             throw GraphError.EdgeDoesNotExist("There is no such edge between provided vertices.")
         }
     }
+    
+    func vertices() throws -> Array<Vertex<Element>> {
+        if !self.isEmpty {
+            let allVertices : Array<Vertex<Element>> = Array(adjacencyDict.keys)
+            return allVertices
+        } else {
+            throw GraphError.EmptyGraph("The graph is empty.")
+        }
+    }
 }
 
