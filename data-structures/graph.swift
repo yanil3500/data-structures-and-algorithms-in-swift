@@ -142,5 +142,18 @@ extension Graph {
         //Checks the graph to see if it contains the given vertex.
         return adjacencyDict.keys.contains(Vertex(data: source))
     }
+    
+    func neighbors(from source: Element) throws -> Array<Vertex<Element>> {
+        //Returns all the vertices connected to the given vertex.
+        let sourceVertex : Vertex<Element> = Vertex(data: source)
+        if self.hasVertex(from: source){
+            var allNeighbors = Array<Vertex<Element>>()
+            for (neighbor, _) in adjacencyDict[sourceVertex]!{
+                allNeighbors.append(neighbor)
+            }
+            return allNeighbors
+        }
+        throw GraphError.VertexDoesNotExist("The vertex does not exist.")
+    }
 }
 
