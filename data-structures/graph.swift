@@ -75,5 +75,24 @@ extension Graph {
         }
         adjacencyDict[sourceV]?.append((vertex: destinationV, weight: weight))
     }
+    
+    func removeEdge(from source: Element, to destination: Element) throws {
+        //Remove the edge between the given vertices, if such an edge exists.
+        var index : Int = 0
+        var edgeDoesExist : Bool = false
+        guard let edges : arrayOfVertexAndWeight = adjacencyDict[Vertex(data: source)] else { throw GraphError.VertexDoesNotExist("The vertex does not exist.") }
+        for (i, edge) in edges.enumerated() {
+            if edge.vertex == Vertex(data: destination) {
+                index = i
+                edgeDoesExist =  true
+                break
+            }
+        }
+        if edgeDoesExist {
+            adjacencyDict[Vertex(data: source)]?.remove(at: index)
+        } else {
+            throw GraphError.EdgeDoesNotExist("There is no such edge between provided vertices.") 
+        }
+    }
 }
 
