@@ -98,6 +98,16 @@ extension Graph {
     func removeVertex(from source: Element) throws {
         //Removes the given vertex from the Graph, as well as edge pointers that reference the given vertex.
         let vertexToRemove : Vertex<Element> = Vertex(data: source)
+        if hasVertex(from: source){
+            //Remove vertex from keys
+            adjacencyDict.removeValue(forKey: vertexToRemove)
+            guard let allEdges = edges() else { fatalError() }
+            for (aSource, _) in allEdges {
+                try? removeEdge(from: aSource.data, to: source)
+            }
+        } else {
+            throw GraphError.VertexDoesNotExist("The vertex does not exist.")
+        }
         
     }
     
@@ -108,6 +118,24 @@ extension Graph {
         } else {
             throw GraphError.EmptyGraph("The graph is empty.")
         }
+    }
+    
+    func edges() -> Array<(source: Vertex<Element>, edges:Array<Any>)>? {
+        if !self.isEmpty {
+            do {
+                var allEdges = Array<(source: Vertex<Element>, edges:Array<Any>)>()
+                let sourceVertices = try vertices()
+                for source in sourceVertices {
+                    guard let edges = adjacencyDict[source] else { return nil }
+                    allEdges.append((source, edges))
+                }
+                return allEdges
+                
+            } catch (let error) {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
     }
     
     func hasVertex(from source: Element) -> Bool {
