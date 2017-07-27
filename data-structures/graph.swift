@@ -155,5 +155,18 @@ extension Graph {
         }
         throw GraphError.VertexDoesNotExist("The vertex does not exist.")
     }
+    
+    func isAdjacent(from source: Element, to destination: Element) -> Bool {
+        //Return true if edge exists between the given vertices.
+        if hasVertex(from: source) && hasVertex(from: destination) {
+            for (vertex, _) in adjacencyDict[Vertex(data: source)]! {
+                if destination == vertex.data {
+                    return true
+                }
+            }
+            return false
+        }
+        return false
+    }
 }
 
