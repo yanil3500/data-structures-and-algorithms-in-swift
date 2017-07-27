@@ -91,7 +91,7 @@ extension Graph {
         if edgeDoesExist {
             adjacencyDict[Vertex(data: source)]?.remove(at: index)
         } else {
-            throw GraphError.EdgeDoesNotExist("There is no such edge between provided vertices.") 
+            throw GraphError.EdgeDoesNotExist("There is no such edge between provided vertices.")
         }
     }
 }
