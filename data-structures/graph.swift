@@ -95,6 +95,12 @@ extension Graph {
         }
     }
     
+    func removeVertex(from source: Element) throws {
+        //Removes the given vertex from the Graph, as well as edge pointers that reference the given vertex.
+        let vertexToRemove : Vertex<Element> = Vertex(data: source)
+        
+    }
+    
     func vertices() throws -> Array<Vertex<Element>> {
         if !self.isEmpty {
             let allVertices : Array<Vertex<Element>> = Array(adjacencyDict.keys)
@@ -102,6 +108,11 @@ extension Graph {
         } else {
             throw GraphError.EmptyGraph("The graph is empty.")
         }
+    }
+    
+    func hasVertex(from source: Element) -> Bool {
+        //Checks the graph to see if it contains the given vertex.
+        return adjacencyDict.keys.contains(Vertex(data: source))
     }
 }
 
