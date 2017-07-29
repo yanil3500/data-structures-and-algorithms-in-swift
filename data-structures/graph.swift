@@ -40,8 +40,7 @@ extension Vertex: CustomStringConvertible {
 
 
 class Graph<Element: Hashable>{
-    typealias arrayOfVertexAndWeight = Array<(vertex: Vertex<Element>, weight: Double)>
-    fileprivate var adjacencyDict : [Vertex<Element>: arrayOfVertexAndWeight] = [:]
+    fileprivate var adjacencyDict : [Vertex<Element>: Array<(vertex: Vertex<Element>, weight: Double)>] = [:]
 }
 
 extension Graph {
@@ -66,7 +65,7 @@ extension Graph {
         //Adds vertices to adjacency list
         let sourceV : Vertex<Element> = addVertex(data: source)
         let destinationV : Vertex<Element> = addVertex(data: destination)
-        guard let values : arrayOfVertexAndWeight = adjacencyDict[sourceV] else { return }
+        guard let values : Array<(vertex: Vertex<Element>, weight: Double)> = adjacencyDict[sourceV] else { return }
         for (v, w) in values {
             if v == destinationV && w == weight {
                 //If an edge exists between source and destination vertices, no need to add edge and return
@@ -80,7 +79,7 @@ extension Graph {
         //Remove the edge between the given vertices, if such an edge exists.
         var index : Int = 0
         var edgeDoesExist : Bool = false
-        guard let edges : arrayOfVertexAndWeight = adjacencyDict[Vertex(data: source)] else { throw GraphError.VertexDoesNotExist("The vertex does not exist.") }
+        guard let edges : Array<(vertex: Vertex<Element>, weight: Double)> = adjacencyDict[Vertex(data: source)] else { throw GraphError.VertexDoesNotExist("The vertex does not exist.") }
         for (i, edge) in edges.enumerated() {
             if edge.vertex == Vertex(data: destination) {
                 index = i
