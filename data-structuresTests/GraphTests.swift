@@ -31,6 +31,13 @@ class GraphTests: XCTestCase {
         
     }
     
+    func testAddEdgeThrowsError(){
+        //Asserts that the addEdge method will throw an error if an attempt is made to add a pre-existing edge between given vertices.
+        try? testGraph.addEdge(from: "Seattle", to: "New York City", weight: 1000)
+        
+        XCTAssertThrowsError(try testGraph.addEdge(from: "Seattle", to: "New York City", weight: 1000))
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
