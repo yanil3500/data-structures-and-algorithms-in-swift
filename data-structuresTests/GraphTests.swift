@@ -23,7 +23,12 @@ class GraphTests: XCTestCase {
     }
     
     func testIsEmpty() {
+        //Asserts that isEmpty computed property returns true for an empty graph
         XCTAssertTrue(testGraph.isEmpty)
+        //Adds elements to the graph and asserts that isEmpty will return false for a graph that contains elements.
+        try? testGraph.addEdge(from: "Seattle", to: "New York City", weight: 1000)
+        XCTAssertFalse(testGraph.isEmpty)
+        
     }
     
     func testPerformanceExample() {
